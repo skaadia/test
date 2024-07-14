@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. Formulation Faible &#8212; Maillage et Éléments Finis</title>
+    <title>2.2. Formulation Faible &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
   
   
   
@@ -133,7 +133,7 @@
   
   
   
-    <p class="title logo__title">Maillage et Éléments Finis</p>
+    <p class="title logo__title">Recueil d'Exercices Classiques de Mathématiques</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -388,7 +388,10 @@ document.write(`
 </div></section>
 <section id="edp-probleme-fort">
 <h2><span class="section-number">2.2.2. </span>EDP (problème fort)<a class="headerlink" href="#edp-probleme-fort" title="Lien permanent vers ce titre">#</a></h2>
-<p>Ce cours se concentre sur les équations aux dérivées partielles (EDP) elliptiques du second ordre, qui font appel à l’opérateur de Laplace <a class="footnote-reference brackets" href="#id4" id="id1">1</a> (ou <em>Laplacien</em>) :</p>
+<p>Ce cours se concentre sur les équations aux dérivées partielles (EDP) elliptiques du second ordre, qui font appel à l’opérateur de Laplace <label for='sidenote-role-1' class='margin-toggle'><span id="id1">
+<sup>1</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup>Pierre-Simon Laplace (1749 – 1827).</span> (ou <em>Laplacien</em>) :</p>
 <div class="math notranslate nohighlight">
 \[\Delta := \frac{\partial^2}{\partial x} + \frac{\partial^2}{\partial y} = \frac{\partial^2}{\partial x_1} + \frac{\partial^2}{\partial x_2}.\]</div>
 <p>Nous considérons le problème générique suivant, appelé aussi problème de réaction-diffusion :</p>
@@ -414,7 +417,10 @@ document.write(`
 <section id="theoreme-de-green">
 <h2><span class="section-number">2.2.3. </span>Théorème de Green<a class="headerlink" href="#theoreme-de-green" title="Lien permanent vers ce titre">#</a></h2>
 <p>Pour une géométrie arbitraire, nous ne savons pas, en général, obtenir <strong>la solution forte</strong> (ou classique) du problème <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a>. La méthode des éléments finis se base sur l’approximation numérique de <strong>la solution au sens faible</strong> du problème  <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a>. Nous verrons qu’une solution <em>faible</em> est, en fait et en général, <em>forte</em>. Commençons par réécrire le problème d’origine sous sa formulation faible ou formulation variationnelle.</p>
-<p>Un théorème central dans l’analyse des EDP et qui permet d’obtenir ces formulations faibles est celui de Green <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
+<p>Un théorème central dans l’analyse des EDP et qui permet d’obtenir ces formulations faibles est celui de Green <label for='sidenote-role-2' class='margin-toggle'><span id="id2">
+<sup>2</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-2' name='sidenote-role-2' class='margin-toggle'><span class="sidenote"><sup>2</sup>George Green (1793 – 1841). Mathématicien britannique (quasi) auto-didacte.</span></p>
 <div class="math notranslate nohighlight">
 \[\forall u,v,\qquad  \int_{\Omega} (\Delta u)(\xx) v(\xx)\diff\xx   = - \int_{\Omega} \nabla u(\xx)  \cdot\nabla v(\xx)\diff\xx  + \int_{\Gamma} (\dn u)(\xx)  v(\xx)  \diff s(\xx).\]</div>
 <p>Ce résultat est également valable en dimension 3 pour des domaines polygonaux (ouf). Le produit <span class="math notranslate nohighlight">\(\nabla u \cdot\nabla v\)</span> est le produit scalaire euclidien standard. La quantité <span class="math notranslate nohighlight">\(v\)</span> est ici laissé non définie, c’est normal : supposez que c’est une fonction de même régularité que <span class="math notranslate nohighlight">\(u\)</span>. Pour compacter les équations, nous n’indiquerons plus les quantités d’intégrations :</p>
@@ -468,12 +474,6 @@ document.write(`
 <script>
 iFrameResize({}, '#iframe-weak-formulation')
 </script><dl class="footnote brackets">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Pierre-Simon Laplace (1749 – 1827).</p>
-</dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>George Green (1793 – 1841). Mathématicien britannique (quasi) auto-didacte.</p>
-</dd>
 <dt class="label" id="id6"><span class="brackets">3</span></dt>
 <dd><p>Du nom de son découvreur, Sergei Sobolev (1908 – 1989), mathématicien Russe.</p>
 </dd>
@@ -547,7 +547,7 @@ iFrameResize({}, '#iframe-weak-formulation')
   <div class="footer-item">
     
 <p class="component-author">
-Par Bertrand Thierry
+Par Armand Wayoff
 </p>
 
   </div>
@@ -556,7 +556,7 @@ Par Bertrand Thierry
     
   <p class="copyright">
     
-      © Copyright 2023, Bertrand Thierry.
+      © Copyright 2024, Bertrand Thierry.
       <br/>
     
   </p>

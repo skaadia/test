@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3.2. Espace \(\Pb^1\)-Lagrange &#8212; Maillage et Éléments Finis</title>
+    <title>3.2. Espace \(\Pb^1\)-Lagrange &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
   
   
   
@@ -133,7 +133,7 @@
   
   
   
-    <p class="title logo__title">Maillage et Éléments Finis</p>
+    <p class="title logo__title">Recueil d'Exercices Classiques de Mathématiques</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -413,7 +413,10 @@ document.write(`
 <object type="text/html" data="../../../_static/mesh/teapot.html" width="100%" height="auto"></object></section>
 <section id="fonction-lineaire-sur-un-triangle">
 <h2><span class="section-number">3.2.2. </span>Fonction linéaire sur un triangle<a class="headerlink" href="#fonction-lineaire-sur-un-triangle" title="Lien permanent vers ce titre">#</a></h2>
-<p><strong>Cas du segment (1D).</strong> Regardons tout d’abord le cas <span class="math notranslate nohighlight">\(1D\)</span> d’un segment <span class="math notranslate nohighlight">\([\alpha,\beta]\)</span> et d’une fonction <span class="math notranslate nohighlight">\(p\)</span> linéaire sur ce segment : <span class="math notranslate nohighlight">\(p(x) = ax + b\)</span>. Les coefficients <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> caractérisent la fonction <span class="math notranslate nohighlight">\(p\)</span> et sont, de plus, définis de manière unique dès lors que l’on connait la valeur de <span class="math notranslate nohighlight">\(p\)</span> en <span class="math notranslate nohighlight">\(\alpha\)</span> et en <span class="math notranslate nohighlight">\(\beta\)</span> (2 équations à 2 inconnues, linéairement indépendantes). Cette propriété reste naturellement vraie pour un segment <span class="math notranslate nohighlight">\([\vec{\alpha},\vec{\beta}]\)</span> « plongé » en dimension 2. Un point <span class="math notranslate nohighlight">\(\xx\)</span> de ce segment est décrit par ses coordonées curvilignes : <span class="math notranslate nohighlight">\(\xx(s) = (1-s) \vec{\alpha} + s\vec{\beta}\)</span>, pour <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>, et un polynôme <span class="math notranslate nohighlight">\(p\)</span> de degré 1 sur <span class="math notranslate nohighlight">\([\vec{\alpha}, \vec{\beta}]\)</span> s’écrit alors <span class="math notranslate nohighlight">\(p(\xx(s)) = (1-s) p(\vec{\alpha}) + s p(\vec{\beta})\)</span> pour <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>. On voit clairement qu’un polynôme de degré 1 sur un segment est défini de manière unique par ses valeurs aux extrémités <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p>
+<p><strong>Cas du segment (1D).</strong> Regardons tout d’abord le cas <span class="math notranslate nohighlight">\(1D\)</span> d’un segment <span class="math notranslate nohighlight">\([\alpha,\beta]\)</span> et d’une fonction <span class="math notranslate nohighlight">\(p\)</span> linéaire sur ce segment : <span class="math notranslate nohighlight">\(p(x) = ax + b\)</span>. Les coefficients <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> caractérisent la fonction <span class="math notranslate nohighlight">\(p\)</span> et sont, de plus, définis de manière unique dès lors que l’on connait la valeur de <span class="math notranslate nohighlight">\(p\)</span> en <span class="math notranslate nohighlight">\(\alpha\)</span> et en <span class="math notranslate nohighlight">\(\beta\)</span> (2 équations à 2 inconnues, linéairement indépendantes). Cette propriété reste naturellement vraie pour un segment <span class="math notranslate nohighlight">\([\vec{\alpha},\vec{\beta}]\)</span> « plongé » en dimension 2. Un point <span class="math notranslate nohighlight">\(\xx\)</span> de ce segment est décrit par ses coordonées curvilignes : <span class="math notranslate nohighlight">\(\xx(s) = (1-s) \vec{\alpha} + s\vec{\beta}\)</span>, pour <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>, et un polynôme <span class="math notranslate nohighlight">\(p\)</span> de degré 1 sur <span class="math notranslate nohighlight">\([\vec{\alpha}, \vec{\beta}]\)</span> s’écrit alors <span class="math notranslate nohighlight">\(p(\xx(s)) = (1-s) p(\vec{\alpha}) + s p(\vec{\beta})\)</span> pour <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>. On voit clairement qu’un polynôme de degré 1 sur un segment est défini de manière unique par ses valeurs aux extrémités <label for='sidenote-role-1' class='margin-toggle'><span id="id1">
+<sup>1</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup>Au lycée on disait « entre deux points ne passe qu’une et une seule droite ».</span>.</p>
 <p><strong>Cas du triangle (2D).</strong> Revenons maintenant dans un triangle <span class="math notranslate nohighlight">\(\tri\)</span> non plat et notons <span class="math notranslate nohighlight">\(\Pb^1\)</span> l’espace des polynômes réels de degré 1 sur <span class="math notranslate nohighlight">\(\Rb^2\)</span>, de dimension 3 :</p>
 <div class="math notranslate nohighlight">
 \[\Pb^1(\Rb) = \enstq{p\colon \Rb^2\to\Rb}{\exists!a,b,c \in\Rb \text{ tels que } \forall (x,y)\in \Rb^2, p(x,y) = a + bx + cy}\]</div>
@@ -613,11 +616,6 @@ document.write(`
 </li>
 <li><p>Le support d’une fonction de forme <span class="math notranslate nohighlight">\(\mphi_I\)</span> est l’union des triangles ayant pour sommets <span class="math notranslate nohighlight">\(\vertice_I\)</span>. Il est donc très petit par rapport à <span class="math notranslate nohighlight">\(\Omega\)</span>.</p></li>
 </ul>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Au lycée on disait « entre deux points ne passe qu’une et une seule droite ».</p>
-</dd>
-</dl>
 </section>
 </section>
 
@@ -688,7 +686,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Par Bertrand Thierry
+Par Armand Wayoff
 </p>
 
   </div>
@@ -697,7 +695,7 @@ Par Bertrand Thierry
     
   <p class="copyright">
     
-      © Copyright 2023, Bertrand Thierry.
+      © Copyright 2024, Bertrand Thierry.
       <br/>
     
   </p>
