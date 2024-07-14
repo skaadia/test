@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Maillage et Éléments Finis'
-copyright = '2023, Bertrand Thierry'
-author = 'Bertrand Thierry'
+project = "Recueil d'Exercices Classiques de Mathématiques"
+copyright = '2024, Bertrand Thierry'
+author = 'Armand Wayoff'
 
 
 # -- General configuration ---------------------------------------------------
@@ -59,12 +59,18 @@ numfig = True
 #html_theme = "pydata_sphinx_theme"
 html_theme = "sphinx_book_theme"
 
-html_title = "Maillage et Éléments Finis"
+html_title = "Recueil d'Exercices Classiques de Mathématiques"
+
+# html_logo = "img/logo/logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_theme_options = {
+  "use_sidenotes": True
+}
 
 
 html_css_files = [
