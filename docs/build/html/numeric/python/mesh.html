@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.2. Gestion du maillage &#8212; Maillage et Éléments Finis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=826a94cf" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=bf059b8c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'numeric/python/mesh';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="2.3. Matrices de Masse et de Rigidité" href="mass-stiffness.html" />
+    <link rel="prev" title="2.1. Matrices Creuses" href="sparse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Maillage et Éléments Finis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières :</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../lecture/index.html">Notes de cours</a><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture/numerical-simulation/index.html">1. Simulation Numérique</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/numerical-simulation/EDP.html">1.1. Quelques exemples d’EDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/numerical-simulation/industrie.html">1.2. Industrie</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture/weak-solution/index.html">2. Formulations Faibles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/weak-solution/rappels.html">2.1. Espaces de Hilbert : rappels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/weak-solution/weak-formulation.html">2.2. Formulation Faible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/weak-solution/lax-milgram.html">2.3. Théorème de Lax-Milgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/weak-solution/sobolev-spaces.html">2.4. Espaces de Sobolev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/weak-solution/exemple.html">2.5. Application au problème modèle</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/index.html">3. Éléments Finis Triangulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/galerkin.html">3.1. Méthode de Galerkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/espace-p1.html">3.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/assemblage.html">3.3. Assemblage des Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/contributions-elementaires.html">3.4. Calcul des Matrices Élémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/elements-finis-triangulaires/matrice-creuse.html">3.5. Matrice Creuse</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture/boundary-conditions/index.html">4. Conditions aux bords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/boundary-conditions/neumann-heterogene.html">4.1. Conditions de Neumann hétérogène</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/boundary-conditions/dirichlet.html">4.2. Condition de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/boundary-conditions/fourier.html">4.3. Condition de Fourier</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture/advanced/index.html">5. Avancée</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/advanced/error.html">5.1. Erreur comise et convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture/advanced/p2.html">5.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Implémentation</a><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gmsh/index.html">1. Maillage avec GMSH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gmsh/mesh.html">1.1. Prise en main de GMSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gmsh/api.html">1.2. API GMSH</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">2. Solveur FEM Python</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sparse.html">2.1. Matrices Creuses</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">2.2. Gestion du maillage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mass-stiffness.html">2.3. Matrices de Masse et de Rigidité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadrature.html">2.4. Quadratures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dirichlet.html">2.5. Conditions de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solve.html">2.6. Résolution et Analyse</a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../projet/index.html">Projet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2017-2018/index.html">1. 2017 - 2018 : Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2020-2021/index.html">2. 2020 - 2021</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Bertbk/course-fem-sphinx">Dépôt GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/numeric/python/mesh.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Gestion du maillage</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-par-element">2.2.1. Une classe par élément</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-pour-les-gouverner-toutes">2.2.2. Une classe pour les gouverner toutes…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-dans-les-tenebres-les-lier-a-gmsh">2.2.3. …Et dans les ténébres les lier (à GMSH)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="gestion-du-maillage">
+<h1><span class="section-number">2.2. </span>Gestion du maillage<a class="headerlink" href="#gestion-du-maillage" title="Lien vers cette rubrique">#</a></h1>
+<section id="une-classe-par-element">
+<h2><span class="section-number">2.2.1. </span>Une classe par élément<a class="headerlink" href="#une-classe-par-element" title="Lien vers cette rubrique">#</a></h2>
+<p>Nous proposons de construire 3 classes : <code class="code docutils literal notranslate"><span class="pre">Point</span></code>, <code class="code docutils literal notranslate"><span class="pre">Segment</span></code> et <code class="code docutils literal notranslate"><span class="pre">Triangle</span></code> représentant un élément de type point, segment et triangle. La première étape consiste à transcrire les informations du maillage dans notre structure de données. Nous pouvons aussi ne pas passer par cette étape et n’utiliser que GMSH, cependant, cela nous donnera un meilleur contrôle par la suite.</p>
+<p>La classe <code class="code docutils literal notranslate"><span class="pre">Point</span></code> contient les coordonnées du point et un identifiant (0,1,2,3, …), son indice globale, qui correspondra en P1 à la ligne dans la matrice du degré de liberté (DOF). Les classes <code class="code docutils literal notranslate"><span class="pre">Segment</span></code> et <code class="code docutils literal notranslate"><span class="pre">Triangle</span></code> ont pour paramètres :</p>
+<ul class="simple">
+<li><p>Un identifiant (0,1,2,3…)</p></li>
+<li><p>Une liste orientée de <code class="code docutils literal notranslate"><span class="pre">Point</span></code> qui le définissent</p></li>
+<li><p>Un tag <code class="code docutils literal notranslate"><span class="pre">Physical</span></code> (ou -1 sinon)</p></li>
+</ul>
+<p>L’identifiant n’a pas besoin d’être le même que dans GMSH, il est même plus logique que les identifiants soient consécutifs et incrémenté à chaque nouvelle instance (0, 1, 2, …). Le tag <code class="code docutils literal notranslate"><span class="pre">Physical</span></code> doit en revanche être le même que GMSH pour éviter toute confusion. Vous êtes évidemment libre d’ajouter des paramètres et des méthodes à ces classes !</p>
+<p>Par ailleurs, les 2 classes d’élément <code class="code docutils literal notranslate"><span class="pre">Segment</span></code> et <code class="code docutils literal notranslate"><span class="pre">Triangle</span></code>, disposeront au moins des méthodes suivantes :</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">area()</span></code> : calcule l’aire de l’élément (pour un segment, sa taille ; peut être stockée dans un paramètre et être calculé une fois pour toute)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">jac()</span></code> : calcule son jacobien (son aire pour un segment, 2 fois l’aire pour un triangle)</p></li>
+</ul>
+</section>
+<section id="une-classe-pour-les-gouverner-toutes">
+<h2><span class="section-number">2.2.2. </span>Une classe pour les gouverner toutes…<a class="headerlink" href="#une-classe-pour-les-gouverner-toutes" title="Lien vers cette rubrique">#</a></h2>
+<p>Il peut être assez malin de construire une classe <code class="code docutils literal notranslate"><span class="pre">Mesh</span></code> qui représente le maillage et permettra d’effectuer des recherches d’éléments. Cette classe aura pour paramètre trois listes : une liste de <code class="code docutils literal notranslate"><span class="pre">Point</span></code>, une de <code class="code docutils literal notranslate"><span class="pre">Segment</span></code> et une de <code class="code docutils literal notranslate"><span class="pre">Triangle</span></code>. De plus, nous lui ajoutons deux méthodes :</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Mesh.getElements(dim,</span> <span class="pre">physical_tag)</span></code> : retourne une liste de tous les éléments ayant la dimension <code class="code docutils literal notranslate"><span class="pre">dim</span></code> (=1 pour segment, 2 pour triangle) et le tag physique <code class="code docutils literal notranslate"><span class="pre">physical_tag</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Mesh.getPoints(dim,</span> <span class="pre">physical_tag)</span></code> : retourne uniquement les points du domaine de dimension <code class="code docutils literal notranslate"><span class="pre">dim</span></code> et de label physique <code class="code docutils literal notranslate"><span class="pre">physical_tag</span></code></p></li>
+</ul>
+</section>
+<section id="et-dans-les-tenebres-les-lier-a-gmsh">
+<h2><span class="section-number">2.2.3. </span>…Et dans les ténébres les lier (à GMSH)<a class="headerlink" href="#et-dans-les-tenebres-les-lier-a-gmsh" title="Lien vers cette rubrique">#</a></h2>
+<p>Le maillage étant construit avec GMSH, il s’agit maintenant de convertir les données issues de GMSH dans notre structure. Nous supposons ici que le maillage est déjà chargé en mémoire, soit parce qu’il vient d’être construit par GMSH (via <code class="code docutils literal notranslate"><span class="pre">gmsh.model.mesh</span></code>) soit parce qu’il a été lu sur disque (via <code class="code docutils literal notranslate"><span class="pre">gmsh.merge(&quot;fichier.msh&quot;)</span></code>). Nous proposons que le constructeur de <code class="code docutils literal notranslate"><span class="pre">Mesh</span></code> soit vide (ne construit rien) et que l’instance de <code class="code docutils literal notranslate"><span class="pre">Mesh</span></code> soit construite à l’aide d’une méthode <code class="code docutils literal notranslate"><span class="pre">GmshToMesh(string</span> <span class="pre">filename)</span></code>, qui lit les données GMSH et construit les <code class="code docutils literal notranslate"><span class="pre">Point</span></code>, <code class="code docutils literal notranslate"><span class="pre">Segment</span></code> et <code class="code docutils literal notranslate"><span class="pre">Triangle</span></code> et les ajoute dans les listes correspondent à <code class="code docutils literal notranslate"><span class="pre">Mesh</span></code>. L’argument <code class="code docutils literal notranslate"><span class="pre">filename</span></code> peut être optionnel si le maillage est déjà construit.</p>
+<div class="mermaid" style="text-align:center;">
+classDiagram
+    class Mesh{
+          +Point[ ] points
+          +Segment[ ] segments
+          +Triangles[ ] triangles
+          +int Npts, Nseg, Ntri
+          __init__(self)
+          __str__(self)
+          GmshToMesh(self, filename)
+          getElements(self, dim, physical_tag)
+          getPoints(self, dim, physical_tag)
+      }
+      class Point{
+          +int id
+          +float x, y
+          -static int N
+          -static name="Point"
+          __init__(self, x, y)
+      }
+      class Segment{
+          int id
+          int physical_tag
+          Point[ ] p
+          -static int N
+          -static name="Segment"
+          __init__(self, Point[], id)
+          area(self)
+          jac(self)
+      }
+      class Triangle{
+          int id
+          int physical_tag
+          Point[ ] p
+          -static int N
+          -static name="Triangle"
+          __init__(self, Point[], id)
+          area(self)
+          jac(self)
+      }
+      Point <.. Mesh
+      Segment >.. Mesh
+      Triangle <.. Mesh
+</div><div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">Remark 2.16 </span></p>
+<section class="remark-content" id="proof-content">
+<p>La méthode la plus délicate à construire est <code class="code docutils literal notranslate"><span class="pre">GmshToMesh</span></code>. Pour vous aider un petit peu, n’hésitez pas à fouiller dans <a class="reference external" href="https://gitlab.onelab.info/gmsh/gmsh/blob/master/api/gmsh.py">l’API de GMSH</a>) :</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">gmsh.model.mesh.getNodes()</span></code> : retourne tous les noeuds</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gmsh.model.getPhysicalGroups()</span></code> : retourne tous les groupes physiques avec leurs dimension et tag</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gmsh.model.getEntitiesForPhysicalGroup(dim,</span> <span class="pre">physical_tag)</span></code> : retourne toutes les entités d’un groupe physique</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gmsh.model.mesh.getElements(dim,</span> <span class="pre">tag)</span></code> : retourne tous les éléments de dimension <code class="code docutils literal notranslate"><span class="pre">dim</span></code> (segments (<code class="code docutils literal notranslate"><span class="pre">dim=1</span></code>), triangles (<code class="code docutils literal notranslate"><span class="pre">dim=2</span></code>), …) appartenant à l’entity de label <code class="code docutils literal notranslate"><span class="pre">tag</span></code>.</p></li>
+</ul>
+<p>L’algorithme ressemble surement à ceci :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//<span class="w"> </span>Création<span class="w"> </span>des<span class="w"> </span>points
+For<span class="w"> </span>every<span class="w"> </span>Nodes
+<span class="w">  </span>Point<span class="o">(</span>...<span class="o">)</span>
+End
+//Création<span class="w"> </span>des<span class="w"> </span>éléments
+For<span class="w"> </span>every<span class="w"> </span>Physical<span class="w"> </span>Entity
+<span class="w">  </span>For<span class="w"> </span>every<span class="w"> </span>Entity
+<span class="w">    </span>For<span class="w"> </span>every<span class="w"> </span>Element
+</pre></div>
+</div>
+</section>
+</div><script defer="defer" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sparse.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Matrices Creuses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mass-stiffness.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Matrices de Masse et de Rigidité</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-par-element">2.2.1. Une classe par élément</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-pour-les-gouverner-toutes">2.2.2. Une classe pour les gouverner toutes…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-dans-les-tenebres-les-lier-a-gmsh">2.2.3. …Et dans les ténébres les lier (à GMSH)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Bertrand Thierry
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Bertrand Thierry.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

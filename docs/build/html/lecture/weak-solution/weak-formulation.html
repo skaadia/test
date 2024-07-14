@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.2. Formulation Faible &#8212; Maillage et Éléments Finis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=826a94cf" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=bf059b8c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"tex": {"macros": {"dsp": "{\\displaystyle}", "gD": "{g_D}", "gN": "{g_N}", "GammaN": "{\\Gamma_N}", "GammaD": "{\\Gamma_D}", "GammaF": "\\Gamma_F", "Lo": "{L^2(\\Omega)}", "Ho": "{H^1(\\Omega)}", "Hoz": "{H^1_{0}(\\Omega)}", "HoD": "{H^1_{\\GammaD}(\\Omega)}", "Hog": "{H^1_{\\gD}(\\Omega)}", "Hoo": "{H^2(\\Omega)}", "Vh": "{V_h}", "Vhz": "{V_{h,0}}", "VhD": "{V_{h,\\GammaD}}", "abs": ["{\\left|#1\\right|}", 1], "norm": ["{\\left\\|#1\\right\\|}", 1], "PS": ["{\\left(#1,#2\\right)}", 2], "PSL": ["{\\PS{#1}{#2}_{\\Lo}}", 2], "PSLd": ["{\\PS{#1}{#2}_{\\Lo^d}}", 2], "PSH": ["{\\PS{#1}{#2}_{\\Ho}}", 2], "PSV": ["{\\PS{#1}{#2}_{V}}", 2], "normL": ["{\\norm{#1}_{\\Lo}}", 1], "normLd": ["{\\norm{#1}_{(\\Lo)^d}}", 1], "normH": ["{\\norm{#1}_{\\Ho}}", 1], "normV": ["{\\norm{#1}_{V}}", 1], "ut": "{u_t}", "uh": "{u_h}", "vh": "{v_h}", "Ahh": "{A}", "Bh": "{B}", "Uh": "{U}", "Rb": "{\\mathbb{R}}", "Nb": "{\\mathbb{N}}", "nn": "{\\mathbf{n}}", "dn": "{\\partial_{\\nn}}", "ee": "{\\mathbf{e}}", "xx": "{\\mathbf{x}}", "yy": "{\\mathbf{y}}", "zz": "{\\mathbf{z}}", "diff": "{\\mathrm{d}}", "Cscr": "{\\mathscr{C}}", "Ccal": "{\\mathcal{C}}", "mphi": "{\\varphi}", "mphih": "{\\widehat{\\varphi}}", "psih": "{\\widehat{\\psi}}", "gh": "{\\widehat{g}}", "deltaij": "{\\delta_{ij}}", "tri": "{K}", "trih": "{\\widehat{K}}", "vertice": "{\\mathbf{s}}", "verticeK": ["{\\vertice^{#1}}", 1], "verticeh": "{\\widehat{\\vertice}}", "grandO": ["{O\\left(#1\\right)}", 1], "Nh": "{N_h}", "Ns": "{N_s}", "Nt": "{N_t}", "Pb": "{\\mathbb{P}}", "Sh": "{\\mathscr{S}_h}", "Th": "{\\mathscr{T}_h}", "Ah": "{\\mathscr{A}_h}", "card": "{\\textrm{card}}", "supp": "{\\textrm{supp}}", "diam": "{\\textrm{diam}}", "Image": "{\\textrm{Im}}", "locToGlob": "{\\texttt{L2G}}", "trihToTri": ["{T_{#1}}", 1], "JK": ["{J_{#1}}", 1], "BK": ["{B_{#1}}", 1], "Meh": "{\\widehat{M}^e}", "Deh": "{\\widehat{D}^e}", "Me": ["{M^e_{#1}}", 1], "De": ["{D^e_{#1}}", 1], "enstq": ["{\\left\\{#1 \\mathrel{}\\middle|\\mathrel{}#2\\right\\}}", 2]}}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture/weak-solution/weak-formulation';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="2.3. Théorème de Lax-Milgram" href="lax-milgram.html" />
+    <link rel="prev" title="2.1. Espaces de Hilbert : rappels" href="rappels.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Maillage et Éléments Finis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières :</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notes de cours</a><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">1. Simulation Numérique</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">1.1. Quelques exemples d’EDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">1.2. Industrie</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">2. Formulations Faibles</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="rappels.html">2.1. Espaces de Hilbert : rappels</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">2.2. Formulation Faible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lax-milgram.html">2.3. Théorème de Lax-Milgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sobolev-spaces.html">2.4. Espaces de Sobolev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exemple.html">2.5. Application au problème modèle</a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">3. Éléments Finis Triangulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">3.1. Méthode de Galerkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">3.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">3.3. Assemblage des Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">3.4. Calcul des Matrices Élémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">3.5. Matrice Creuse</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">4. Conditions aux bords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">4.1. Conditions de Neumann hétérogène</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">4.2. Condition de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">4.3. Condition de Fourier</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../advanced/index.html">5. Avancée</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/error.html">5.1. Erreur comise et convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/p2.html">5.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../numeric/index.html">Implémentation</a><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numeric/gmsh/index.html">1. Maillage avec GMSH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/gmsh/mesh.html">1.1. Prise en main de GMSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/gmsh/api.html">1.2. API GMSH</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numeric/python/index.html">2. Solveur FEM Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/sparse.html">2.1. Matrices Creuses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/mesh.html">2.2. Gestion du maillage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/mass-stiffness.html">2.3. Matrices de Masse et de Rigidité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/quadrature.html">2.4. Quadratures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/dirichlet.html">2.5. Conditions de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/solve.html">2.6. Résolution et Analyse</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../projet/index.html">Projet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2017-2018/index.html">1. 2017 - 2018 : Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2020-2021/index.html">2. 2020 - 2021</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Bertbk/course-fem-sphinx">Dépôt GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lecture/weak-solution/weak-formulation.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Formulation Faible</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domaine-physique">2.2.1. Domaine Physique</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edp-probleme-fort">2.2.2. EDP (problème fort)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoreme-de-green">2.2.3. Théorème de Green</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.4. Formulation faible</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="formulation-faible">
+<h1><span class="section-number">2.2. </span>Formulation Faible<a class="headerlink" href="#formulation-faible" title="Lien vers cette rubrique">#</a></h1>
+<section id="domaine-physique">
+<h2><span class="section-number">2.2.1. </span>Domaine Physique<a class="headerlink" href="#domaine-physique" title="Lien vers cette rubrique">#</a></h2>
+<figure class="align-center" id="id7" style="width: 100%">
+<a class="reference internal image-reference" href="../../_images/normal.svg"><img alt="Exemple de domaine de calcul avec sa normal unitaire sortante" src="../../_images/normal.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Exemple de domaine de calcul avec sa normal unitaire sortante</span><a class="headerlink" href="#id7" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Dans ce cours, nous considérons un ouvert polygonal <span class="math notranslate nohighlight">\(\Omega\)</span> de <span class="math notranslate nohighlight">\(\Rb^2\)</span>. Nous restons en dimension 2 pour plus de facilité mais l’extension à la dimension 3 est relativement directe et tous les résultats énoncés sont aussi valable en dimension 3. Sur chaque segment du bord <span class="math notranslate nohighlight">\(\Gamma := \partial\Omega\)</span> du domaine, on définit le vecteur unitaire normale <span class="math notranslate nohighlight">\(\nn\)</span> sortant à <span class="math notranslate nohighlight">\(\Omega\)</span>. Nous noterons que ce vecteur n’existe pas aux intersections entre les segments. Le domaine <span class="math notranslate nohighlight">\(\Omega\)</span> est supposé ne pas comporter de fissure ni de point de rebroussement. Son bord est divisé en deux parties distinctes: <span class="math notranslate nohighlight">\(\GammaD\)</span> et <span class="math notranslate nohighlight">\(\GammaN\)</span>, potentiellement non connexe mais d’intersection vide: <span class="math notranslate nohighlight">\(\Gamma = \overline{\GammaD}\cup\overline{\GammaN}\)</span> et <span class="math notranslate nohighlight">\(\GammaD\cap\GammaN=\emptyset\)</span>. Selon la partie du bord, une condition sera imposée à la solution :</p>
+<ul class="simple">
+<li><p>Sur <span class="math notranslate nohighlight">\(\GammaD\)</span> : <em>condition de Dirichlet</em>, c’est à dire que la valeur de la solution y est imposée (eg <span class="math notranslate nohighlight">\(u = 0\)</span>). En mécanique on dirait que le déplacement est imposée.</p></li>
+<li><p>Sur <span class="math notranslate nohighlight">\(\GammaN\)</span> : <em>condition de Neumann</em>, c’est à dire que le flux de la solution y est imposée (eg <span class="math notranslate nohighlight">\(\dn u = 0\)</span>).  En mécanique, on dirait que la force normale est imposée.</p></li>
+</ul>
+<div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">Remark 2.3 </span></p>
+<section class="remark-content" id="proof-content">
+<p>En général, on préfère travailler avec des ouverts <em>réguliers</em>, de classe au moins <span class="math notranslate nohighlight">\(\Ccal^1\)</span>. Un tel ouvert présente l’avantage de pouvoir clairement définir le vecteur unitaire normale <span class="math notranslate nohighlight">\(\nn\)</span> sortante à <span class="math notranslate nohighlight">\(\Omega\)</span>. Cependant, après maillage, on se retrouve avec… un polygone ! Alors plutôt que de travailler dans un domaine régulier pour après le casser en (petits) morceaux, nous préférons ici commencer directement avec un polygone et mettre l’accent sur les algorithmes et la mise en oeuvre de la méthode que les spécificités mathématiques.</p>
+</section>
+</div><div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 2.4 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Un point <span class="math notranslate nohighlight">\(\xx \in \Rb^2\)</span> est parfois noté  <span class="math notranslate nohighlight">\(\xx = (x,y)\)</span> ou <span class="math notranslate nohighlight">\(\xx = (x_1,x_2)\)</span> selon les besoins. Nous commencerons les indiçages par 1 bien qu’en informatique cela commence souvent par 0.</p>
+</section>
+</div></section>
+<section id="edp-probleme-fort">
+<h2><span class="section-number">2.2.2. </span>EDP (problème fort)<a class="headerlink" href="#edp-probleme-fort" title="Lien vers cette rubrique">#</a></h2>
+<p>Ce cours se concentre sur les équations aux dérivées partielles (EDP) elliptiques du second ordre, qui font appel à l’opérateur de Laplace <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (ou <em>Laplacien</em>) :</p>
+<div class="math notranslate nohighlight">
+\[\Delta := \frac{\partial^2}{\partial x} + \frac{\partial^2}{\partial y} = \frac{\partial^2}{\partial x_1} + \frac{\partial^2}{\partial x_2}.\]</div>
+<p>Nous considérons le problème générique suivant, appelé aussi problème de réaction-diffusion :</p>
+<div class="math notranslate nohighlight" id="equation-eq-pbmodel">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-pbmodel" title="Lien vers cette équation">#</a></span>\[\begin{split}\left\{\begin{array}{r c l l}
+  -\Delta u + u  &amp; = &amp; f &amp; (\Omega),\\
+  \dn u &amp; = &amp; 0 &amp; (\Gamma),
+\end{array}\right.\end{split}\]</div>
+<p>où nous avons défini :</p>
+<ul class="simple">
+<li><p>le terme <span class="math notranslate nohighlight">\(\dn u\)</span> désigne la <em>dérivée normale</em> de <span class="math notranslate nohighlight">\(u\)</span> sur le bord, c’est à dire la dérivée de <span class="math notranslate nohighlight">\(u\)</span> dans la direction <span class="math notranslate nohighlight">\(\nn\)</span> : <span class="math notranslate nohighlight">\(\dn u = (\nabla u)\cdot\nn\)</span>, avec <span class="math notranslate nohighlight">\(\nabla u = [\partial_{x_1}u, \partial_{x_2}u]^T\)</span> son vecteur gradient. Vous aurez sans doute remarqué que, entre deux arêtes, le vecteur normal <span class="math notranslate nohighlight">\(\nn\)</span> n’est pas défini et donc la dérivée normale non plus. Ce « problème » n’en est pas vraiment un et pour l’instant mettez cela de côté, nous y reviendrons !</p></li>
+<li><p><span class="math notranslate nohighlight">\((-\Delta u)\)</span> : Terme de diffusion (notez le signe négatif)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dn u=0\)</span> : <strong>Condition de Neumann homogène</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> : une fonction donnée définie sur <span class="math notranslate nohighlight">\(\Omega\)</span>. Elle joue le rôle de <em>terme source</em>, c’est à dire d’apport (positif ou négatif), par exemple de chaleur ou de force surfacique.</p></li>
+</ul>
+<p>Pour le moment, nous ne nous intéressons pas à la régularité de la solution ni même à l’existence et l’unicité de celle-ci : nous supposons que le problème <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a> est bien posé. Une fois la méthode des éléments finis apréhendée, nous nous intéresserons à ces questions. Cela va à l’encontre de l’habitude en mathématiques où l’on démontre le caractère bien posé avant de s’y attaquer. Faites moi confiance et tout s’éclairera !</p>
+<div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 2.5 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Pour l’instant, nous imposons une condition aux bords que nous imposons, de type Neumann homogène. Plus tard nous verrons d’autres types de conditions : Dirichlet, où la valeur de solution est imposée, et Fourier, un mélange entre Dirichlet et Neumann.</p>
+</section>
+</div></section>
+<section id="theoreme-de-green">
+<h2><span class="section-number">2.2.3. </span>Théorème de Green<a class="headerlink" href="#theoreme-de-green" title="Lien vers cette rubrique">#</a></h2>
+<p>Pour une géométrie arbitraire, nous ne savons pas, en général, obtenir <strong>la solution forte</strong> (ou classique) du problème <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a>. La méthode des éléments finis se base sur l’approximation numérique de <strong>la solution au sens faible</strong> du problème  <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a>. Nous verrons qu’une solution <em>faible</em> est, en fait et en général, <em>forte</em>. Commençons par réécrire le problème d’origine sous sa formulation faible ou formulation variationnelle.</p>
+<p>Un théorème central dans l’analyse des EDP et qui permet d’obtenir ces formulations faibles est celui de Green <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<div class="math notranslate nohighlight">
+\[\forall u,v,\qquad  \int_{\Omega} (\Delta u)(\xx) v(\xx)\diff\xx   = - \int_{\Omega} \nabla u(\xx)  \cdot\nabla v(\xx)\diff\xx  + \int_{\Gamma} (\dn u)(\xx)  v(\xx)  \diff s(\xx).\]</div>
+<p>Ce résultat est également valable en dimension 3 pour des domaines polygonaux (ouf). Le produit <span class="math notranslate nohighlight">\(\nabla u \cdot\nabla v\)</span> est le produit scalaire euclidien standard. La quantité <span class="math notranslate nohighlight">\(v\)</span> est ici laissé non définie, c’est normal : supposez que c’est une fonction de même régularité que <span class="math notranslate nohighlight">\(u\)</span>. Pour compacter les équations, nous n’indiquerons plus les quantités d’intégrations :</p>
+<div class="math notranslate nohighlight">
+\[\forall u,v,\qquad  \int_{\Omega} (\Delta u) v  = - \int_{\Omega} \nabla u \cdot\nabla v + \int_{\Gamma} (\dn u) v.\]</div>
+<div class="proof remark admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 2.6 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Ce résultat est en quelque sorte une extension multi-dimensionnel de l’intégration par partie sur un segment  <span class="math notranslate nohighlight">\(\Omega = [a,b]\)</span>. En effet, en dimension 1, l’opérateur <span class="math notranslate nohighlight">\(\Delta\)</span> devient la dérivée seconde. La normale sortante au segment devient un scalaire valant -1 « à gauche » (en <span class="math notranslate nohighlight">\(a\)</span>) et 1 « à droite » (en <span class="math notranslate nohighlight">\(b\)</span>) et la dérivée normale devient <span class="math notranslate nohighlight">\(\dn u = \pm u'\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\int_{a}^b u'' v  = - \int_{a}^b u' v' +  u'(b)v(b) - u'(a)v(a) = - \int_{a}^b u' v'  + \dn u(b)v(b)+ \dn u(a)v(a).\]</div>
+</section>
+</div></section>
+<section id="id3">
+<h2><span class="section-number">2.2.4. </span>Formulation faible<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h2>
+<p>Le point de départ de notre analyse est la réécriture sous forme faible du problème <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a>. Pour cela, la méthode consiste à :</p>
+<ul class="simple">
+<li><p><strong>Multiplier</strong> l’EDP par une <strong>fonction test</strong> <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p><strong>Intéger</strong> le tout sur <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
+<li><p>Appliquer le <strong>Théorème de Green</strong></p></li>
+<li><p>Appliquer les <strong>conditions aux bords</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  -\Delta u + u=f \implies &amp; -\int_{\Omega} \Delta u v + \int_{\Omega}uv = \int_{\Omega}fv\\
+  \implies &amp;\int_{\Omega}\nabla u \cdot\nabla - \int_{\Gamma} \underbrace{(\dn u)}_{=0} v + c\int_{\Omega}uv = \int_{\Omega}fv
+\end{aligned}\end{split}\]</div>
+<p>Nous obtenons alors :</p>
+<div class="math notranslate nohighlight" id="equation-eq-faible">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-faible" title="Lien vers cette équation">#</a></span>\[-\Delta u + u=f \quad (\Omega)\implies \forall v, \quad  \int_{\Omega}\nabla u \cdot\nabla v+ \int_{\Omega}uv = \int_{\Omega}fv.\]</div>
+<p>Ainsi, et toujours sans regarder la régularité de <span class="math notranslate nohighlight">\(u\)</span> (ni de <span class="math notranslate nohighlight">\(v\)</span>), nous avons que : si <span class="math notranslate nohighlight">\(u\)</span> est solution de l’EDP <a class="reference internal" href="#equation-eq-pbmodel">(2.1)</a> alors <span class="math notranslate nohighlight">\(u\)</span> est aussi solution de la formulation faible :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{
+  \begin{aligned}
+    &amp;\text{Trouver } u \text{ tel que }\\
+    &amp;\forall v, \quad \int_{\Omega}\nabla u \cdot\nabla v+ \int_{\Omega}uv = \int_{\Omega}fv.
+  \end{aligned}
+\right.\end{split}\]</div>
+<p>À gauche du signe égal se trouve l’inconnue (<span class="math notranslate nohighlight">\(u\)</span>) et à droite la donnée (<span class="math notranslate nohighlight">\(f\)</span>), c’est une convention et plus tard cette équation s’écrira sous la forme d’un système linéaire <span class="math notranslate nohighlight">\(AU = B\)</span> où le vecteur <span class="math notranslate nohighlight">\(B\)</span> correspondra au membre de droite de <a class="reference internal" href="#equation-eq-faible">(2.2)</a> et la matrice <span class="math notranslate nohighlight">\(A\)</span> à la partie de gauche.</p>
+<div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 2.7 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Attention, sur le bord <span class="math notranslate nohighlight">\(\Gamma\)</span>, <span class="math notranslate nohighlight">\(\dn u= 0\)</span> n’implique pas <span class="math notranslate nohighlight">\(u = 0\)</span> !</p>
+</section>
+</div><p>Nous pouvons maintenant définir plus proprement la quantité <span class="math notranslate nohighlight">\(v\)</span>. Appelée <em>fonction test</em> elle n’a d’autre rôle que de « tester » la solution. L’idée de la formulation faible est de chercher une solution qui vérifie l’EDP, non pas point à point (au sens fort, donc) mais « en moyenne », via l’intégrale. En mécanique, <span class="math notranslate nohighlight">\(v\)</span> est appelé « travaux virtuels » (avec la méthode éponyme qui est, en fait, la formulation faible) : cette quantité est arbitraire et n’est utile que pour écrire le problème faible <a class="reference internal" href="#equation-eq-faible">(2.2)</a>.</p>
+<div id="app-weak-formulation" class="app-container">
+<p>Même si nous n'avons pas encore parcouru toutes les conditions aux limites possibles, l'application ci-dessous (hautement inspiré des apps développées par <a href="http://minapecheux.com/wp/">Mina Pêcheux</a>), permet de comprendre l’influence des conditions aux limites et des autres paramètres sur la "forme" de la formulation faible :</p>
+<iframe id="iframe-weak-formulation" class="app-content" src='../../../_static/app/weak-formulation/index.html' scrolling="no"></iframe>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.1/iframeResizer.min.js" integrity="sha512-ngVIPTfUxNHrVs52hA0CaOVwC3/do2W4jUEJIufgZQicmY27iAJAind8BPtK2LoyIGiAFcOkjO18r5dTUNLFAw==" crossorigin="anonymous"></script>
+<script>
+iFrameResize({}, '#iframe-weak-formulation')
+</script><aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Pierre-Simon Laplace (1749 – 1827).</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>George Green (1793 – 1841). Mathématicien britannique (quasi) auto-didacte.</p>
+</aside>
+<aside class="footnote brackets" id="id6" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>Du nom de son découvreur, Sergei Sobolev (1908 – 1989), mathématicien Russe.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rappels.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Espaces de Hilbert : rappels</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lax-milgram.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Théorème de Lax-Milgram</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domaine-physique">2.2.1. Domaine Physique</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edp-probleme-fort">2.2.2. EDP (problème fort)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoreme-de-green">2.2.3. Théorème de Green</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.4. Formulation faible</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Bertrand Thierry
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Bertrand Thierry.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
