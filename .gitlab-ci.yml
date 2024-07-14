@@ -1,0 +1,32 @@
+stages:
+  - build_sphinx
+  - deploy
+
+build_sphinx:
+  image: python:3.7-alpine
+  stage: build_sphinx
+  script:
+  - pip install -U sphinx
+  - pip install sphinx-book-theme
+  - pip install sphinx-exercise sphinx-proof sphinx-togglebutton
+  - sphinx-build -b html . public
+  - sphinx-build -b latex . _latex
+  artifacts:
+    paths:
+    - public
+    - _latex
+  only:
+  - master
+
+pages:
+  image: aergus/latex
+  stage: deploy
+  script:
+  - cd _latex
+  - make
+  - mv maillageetlmentsfinis.pdf ../public/download/FEM.pdf
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
