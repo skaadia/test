@@ -11,6 +11,7 @@ This lecture note (in french, sorry), has been created using Python Sphinx Docum
 * [sphinx-togglebutton](https://github.com/executablebooks/sphinx-togglebutton)
 * [sphinx-copybutton](https://github.com/executablebooks/sphinx-copybutton)
 
+
 You need to install all of them to make it work
 
 ```bash
