@@ -26,10 +26,10 @@ jobs:
           pip install -r ./docs/requirements.txt
 
       - name: Build HTML documentation
-        run: sphinx-build -b html . public
+        run: sphinx-build -b html docs public
 
       - name: Build LaTeX documentation
-        run: sphinx-build -b latex . _latex
+        run: sphinx-build -b latex docs _latex
 
       - name: Upload HTML documentation as artifact
         uses: actions/upload-artifact@v2
