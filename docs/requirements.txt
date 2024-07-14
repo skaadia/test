@@ -1,0 +1,15 @@
+furo==2021.11.16
+nbsphinx
+sphinx
+sphinx
+sphinx_gallery
+sphinx_rtd_theme
+sphinx-proof
+sphinx-exercise
+sphinx-togglebutton
+sphinx-copybutton
+markupsafe==2.0.1
+geostates
+geopandas
+pandas
+pypandoc
