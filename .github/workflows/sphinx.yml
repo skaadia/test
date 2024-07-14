@@ -1,36 +1,84 @@
-stages:
-  - build_sphinx
-  - deploy
+name: Build and Deploy Sphinx Documentation
 
-build_sphinx:
-  image: python:3.7-alpine
-  stage: build_sphinx
-  script:
-  - pip install -U pip
-  - pip install -r requirements.txt
-  - sphinx-build -b html . public
-  - sphinx-build -b latex . _latex
-  artifacts:
-    paths:
-    - public
-    - _latex
-  only:
-  - master
-  uses: peaceiris/actions-gh-pages@v3
-  if: github.ref == 'refs/heads/main'
-  with:
-    github_token: ${{ secrets.GH_TOKEN }}
-    publish_dir: docs/build/html
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-pages:
-  image: aergus/latex
-  stage: deploy
-  script:
-  - cd _latex
-  - make
-  - mv maillageetlmentsfinis.pdf ../public/download/FEM.pdf
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+jobs:
+  build_sphinx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build HTML documentation
+        run: sphinx-build -b html . public
+
+      - name: Build LaTeX documentation
+        run: sphinx-build -b latex . _latex
+
+      - name: Upload HTML documentation as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: html-docs
+          path: public
+
+      - name: Upload LaTeX documentation as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: latex-docs
+          path: _latex
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_sphinx
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download HTML documentation artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: html-docs
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: public
+
+      - name: Download LaTeX documentation artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: latex-docs
+          path: _latex
+
+      - name: Build PDF from LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+          cd _latex
+          make
+          mv maillageetlmentsfinis.pdf ../public/download/FEM.pdf
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-doc
+          path: public/download/FEM.pdf
