@@ -200,7 +200,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Version PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../apropos/index.html">À propos de ce site</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/Bertbk/course-fem-sphinx">Dépôt GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/armandwayoff/RECM">Dépôt GitHub</a></li>
 </ul>
 
     </div>
@@ -377,6 +377,9 @@ document.write(`
 <p>Supposons maintenant que le studio comporte une source de chaleur, par exemple un radiateur. Nous le modélisons par une fonction <span class="math notranslate nohighlight">\(q\)</span>, continue, valant <span class="math notranslate nohighlight">\(0\)</span> partout sauf sur un petit domaine <span class="math notranslate nohighlight">\(\Omega_R\)</span>. En notant la conductivité <span class="math notranslate nohighlight">\(K\)</span> vérifie <strong>l’équation de Poisson</strong> :</p>
 <div class="math notranslate nohighlight">
 \[(- \Delta T) = \frac{q}{K}, \qquad \text{ dans }\Omega.\]</div>
+<figure class="margin align-default">
+<img alt="Description de la figure" src="../../_images/saut_fonction_interface.png" />
+</figure>
 <p>Ce problème reste pour l’instant incomplet car il manque des conditions. Contrairement aux problèmes de Cauchy, il n’y a pas de condition initiale, car le régime est stationnaire, mais nous avons besoin de conditions sur le bord <span class="math notranslate nohighlight">\(\partial\Omega\)</span> du domaine <span class="math notranslate nohighlight">\(\Omega\)</span>. Nous parlons alors de <em>conditions aux limites</em> et par suite de <em>problème aux limites</em>.</p>
 <p>Ajoutons une fenêtre à notre studio portée à la douce température de <span class="math notranslate nohighlight">\(T_0 = 10^\circ C\)</span> grâce à l’automne frisquet. Le reste des murs est supposé parfaitement isolants, autrement dit le flux à travers les parois est nul. Le flux d’une quantité sur une interface étant donné par</p>
 <div class="math notranslate nohighlight">

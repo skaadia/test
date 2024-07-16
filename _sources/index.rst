@@ -24,5 +24,5 @@ La première section présente la théorie et la mise en oeuvre des éléments f
    projet/index
    download/index
    apropos/index
-   Dépôt GitHub <https://github.com/Bertbk/course-fem-sphinx>
+   Dépôt GitHub <https://github.com/armandwayoff/RECM>
    
