@@ -17,7 +17,6 @@ Supposons maintenant que le studio comporte une source de chaleur, par exemple u
 .. figure:: ../../img/saut_fonction_interface.png
   :figclass: margin
   :alt: Description de la figure
-  
 
 Ce problème reste pour l'instant incomplet car il manque des conditions. Contrairement aux problèmes de Cauchy, il n'y a pas de condition initiale, car le régime est stationnaire, mais nous avons besoin de conditions sur le bord :math:`\partial\Omega` du domaine :math:`\Omega`. Nous parlons alors de *conditions aux limites* et par suite de *problème aux limites*. 
 
