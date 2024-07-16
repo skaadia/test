@@ -69,7 +69,9 @@ html_title = "Recueil d'Exercices Classiques de Mathématiques"
 html_static_path = ['_static']
 
 html_theme_options = {
-  "use_sidenotes": True
+  "use_sidenotes": True,
+  "repository_url": "https://github.com/armandwayoff/RECM",
+  "use_repository_button": True,
 }
 
 
