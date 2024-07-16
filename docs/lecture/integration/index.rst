@@ -14,6 +14,11 @@ Supposons maintenant que le studio comporte une source de chaleur, par exemple u
 
 .. math:: (- \Delta T) = \frac{q}{K}, \qquad \text{ dans }\Omega.
 
+.. figure:: ../../img/saut_fonction_interface.png
+  :figclass: margin
+  :alt: Description de la figure
+  
+
 Ce problème reste pour l'instant incomplet car il manque des conditions. Contrairement aux problèmes de Cauchy, il n'y a pas de condition initiale, car le régime est stationnaire, mais nous avons besoin de conditions sur le bord :math:`\partial\Omega` du domaine :math:`\Omega`. Nous parlons alors de *conditions aux limites* et par suite de *problème aux limites*. 
 
 Ajoutons une fenêtre à notre studio portée à la douce température de :math:`T_0 = 10^\circ C` grâce à l'automne frisquet. Le reste des murs est supposé parfaitement isolants, autrement dit le flux à travers les parois est nul. Le flux d'une quantité sur une interface étant donné par
