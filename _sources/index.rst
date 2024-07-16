@@ -23,5 +23,6 @@ La première section présente la théorie et la mise en oeuvre des éléments f
    numeric/index
    projet/index
    download/index
+   apropos/index
    Dépôt GitHub <https://github.com/Bertbk/course-fem-sphinx>
    

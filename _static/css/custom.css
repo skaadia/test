@@ -21,6 +21,10 @@ div.mermaid svg path.relation
   stroke:ghostwhite !important;
 }
 
+body {
+  color: #de1339 !important;
+}
+
 /* App container*/
 
 div.app-container{
