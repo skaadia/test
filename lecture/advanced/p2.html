@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5.2. Éléments Finis \(\Pb^2\) &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
+    <title>6.2. Éléments Finis \(\Pb^2\) &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
     <link rel="next" title="Implémentation" href="../../numeric/index.html" />
-    <link rel="prev" title="5.1. Erreur comise et convergence" href="error.html" />
+    <link rel="prev" title="6.1. Erreur comise et convergence" href="error.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -140,37 +140,38 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières :</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notes de cours</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">1. Simulation Numérique</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">1.1. Quelques exemples d’EDP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">1.2. Industrie</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Chapitres</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../integration/index.html">1. Intégration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">2. Simulation Numérique</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">2.1. Quelques exemples d’EDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">2.2. Industrie</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../weak-solution/index.html">2. Formulations Faibles</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../weak-solution/rappels.html">2.1. Espaces de Hilbert : rappels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../weak-solution/weak-formulation.html">2.2. Formulation Faible</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../weak-solution/lax-milgram.html">2.3. Théorème de Lax-Milgram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../weak-solution/sobolev-spaces.html">2.4. Espaces de Sobolev</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../weak-solution/exemple.html">2.5. Application au problème modèle</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../weak-solution/index.html">3. Formulations Faibles</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/rappels.html">3.1. Espaces de Hilbert : rappels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/weak-formulation.html">3.2. Formulation Faible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/lax-milgram.html">3.3. Théorème de Lax-Milgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/sobolev-spaces.html">3.4. Espaces de Sobolev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/exemple.html">3.5. Application au problème modèle</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">3. Éléments Finis Triangulaires</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">3.1. Méthode de Galerkin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">3.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">3.3. Assemblage des Matrices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">3.4. Calcul des Matrices Élémentaires</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">3.5. Matrice Creuse</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">4. Éléments Finis Triangulaires</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">4.1. Méthode de Galerkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">4.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">4.3. Assemblage des Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">4.4. Calcul des Matrices Élémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">4.5. Matrice Creuse</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">4. Conditions aux bords</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">4.1. Conditions de Neumann hétérogène</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">4.2. Condition de Dirichlet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">4.3. Condition de Fourier</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">5. Conditions aux bords</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">5.1. Conditions de Neumann hétérogène</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">5.2. Condition de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">5.3. Condition de Fourier</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">5. Avancée</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="error.html">5.1. Erreur comise et convergence</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">5.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">6. Avancée</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="error.html">6.1. Erreur comise et convergence</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">6.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -349,7 +350,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="elements-finis-pb-2">
-<h1><span class="section-number">5.2. </span>Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span><a class="headerlink" href="#elements-finis-pb-2" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">6.2. </span>Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span><a class="headerlink" href="#elements-finis-pb-2" title="Lien permanent vers ce titre">#</a></h1>
 </section>
 
 
@@ -370,7 +371,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title"><span class="section-number">5.1. </span>Erreur comise et convergence</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Erreur comise et convergence</p>
       </div>
     </a>
     <a class="right-next"

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.3. Théorème de Lax-Milgram &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
+    <title>3.3. Théorème de Lax-Milgram &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture/weak-solution/lax-milgram';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="2.4. Espaces de Sobolev" href="sobolev-spaces.html" />
-    <link rel="prev" title="2.2. Formulation Faible" href="weak-formulation.html" />
+    <link rel="next" title="3.4. Espaces de Sobolev" href="sobolev-spaces.html" />
+    <link rel="prev" title="3.2. Formulation Faible" href="weak-formulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -140,37 +140,38 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières :</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notes de cours</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">1. Simulation Numérique</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">1.1. Quelques exemples d’EDP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">1.2. Industrie</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Chapitres</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../integration/index.html">1. Intégration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">2. Simulation Numérique</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">2.1. Quelques exemples d’EDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">2.2. Industrie</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">2. Formulations Faibles</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="rappels.html">2.1. Espaces de Hilbert : rappels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="weak-formulation.html">2.2. Formulation Faible</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">2.3. Théorème de Lax-Milgram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sobolev-spaces.html">2.4. Espaces de Sobolev</a></li>
-<li class="toctree-l3"><a class="reference internal" href="exemple.html">2.5. Application au problème modèle</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">3. Formulations Faibles</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="rappels.html">3.1. Espaces de Hilbert : rappels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weak-formulation.html">3.2. Formulation Faible</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">3.3. Théorème de Lax-Milgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sobolev-spaces.html">3.4. Espaces de Sobolev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exemple.html">3.5. Application au problème modèle</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">3. Éléments Finis Triangulaires</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">3.1. Méthode de Galerkin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">3.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">3.3. Assemblage des Matrices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">3.4. Calcul des Matrices Élémentaires</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">3.5. Matrice Creuse</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">4. Éléments Finis Triangulaires</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">4.1. Méthode de Galerkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">4.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">4.3. Assemblage des Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">4.4. Calcul des Matrices Élémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">4.5. Matrice Creuse</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">4. Conditions aux bords</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">4.1. Conditions de Neumann hétérogène</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">4.2. Condition de Dirichlet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">4.3. Condition de Fourier</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">5. Conditions aux bords</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">5.1. Conditions de Neumann hétérogène</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">5.2. Condition de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">5.3. Condition de Fourier</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../advanced/index.html">5. Avancée</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../advanced/error.html">5.1. Erreur comise et convergence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../advanced/p2.html">5.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../advanced/index.html">6. Avancée</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/error.html">6.1. Erreur comise et convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/p2.html">6.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -349,14 +350,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="theoreme-de-lax-milgram">
-<h1><span class="section-number">2.3. </span>Théorème de Lax-Milgram<a class="headerlink" href="#theoreme-de-lax-milgram" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">3.3. </span>Théorème de Lax-Milgram<a class="headerlink" href="#theoreme-de-lax-milgram" title="Lien permanent vers ce titre">#</a></h1>
 <p>Nous pouvons maintenant énoncer le théorème de Lax-Milgram (<strong>à connaître par cœur</strong>).</p>
 <div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (de Lax-Milgram)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 3.2 </span> (de Lax-Milgram)</p>
 <section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(V\)</span> un espace de Hilbert de produit scalaire <span class="math notranslate nohighlight">\(\PS{\cdot}{\cdot}\)</span> et de norme <span class="math notranslate nohighlight">\(\norm{\cdot}\)</span>, et soit la formulation faible suivante</p>
 <div class="math notranslate nohighlight" id="equation-eq-fvlax">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-fvlax" title="Lien permanent vers cette équation">#</a></span>\[\begin{split}\left\{
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-fvlax" title="Lien permanent vers cette équation">#</a></span>\[\begin{split}\left\{
   \begin{array}{l}
     \dsp \text{Trouver }u\in V \text{ tel que,}\\
     \forall v\in V,\quad a(u,v) = \ell(v).
@@ -379,7 +380,7 @@ document.write(`
 </ol>
 <div class="math notranslate nohighlight">
 \[\exists \alpha &gt; 0 / \forall u \in V, \quad a(u,u) \geq \alpha\norm{u}^2.\]</div>
-<p>Alors la formulation faible <a class="reference internal" href="#equation-eq-fvlax">(2.3)</a> admet une unique solution. De plus cette solution dépend continûment de la forme linéaire <span class="math notranslate nohighlight">\(\ell\)</span> :</p>
+<p>Alors la formulation faible <a class="reference internal" href="#equation-eq-fvlax">(3.3)</a> admet une unique solution. De plus cette solution dépend continûment de la forme linéaire <span class="math notranslate nohighlight">\(\ell\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[\norm{u} \leq \frac{M}{\alpha}C\]</div>
 </section>
@@ -396,7 +397,7 @@ document.write(`
 <p>Appliquons de nouveau le Théorème de représentation de Riesz au membre de droite, puisque <span class="math notranslate nohighlight">\(\ell\)</span> est une forme anti-linéaire continue:</p>
 <div class="math notranslate nohighlight">
 \[\exists! f\in V\text{ tel que } \|f\| = \|\ell\|_{V'} \text{ et } \forall v\in V, \ell(v) = \PS{f}{v}.\]</div>
-<p>Comme <span class="math notranslate nohighlight">\(A(u) = f\)</span> est équivalent à <span class="math notranslate nohighlight">\(\forall v\in V, \PS{A(u)}{v} = \PS{f}{v}\)</span>, alors notre formulation faible <a class="reference internal" href="#equation-eq-fvlax">(2.3)</a> devient équivalent au problème linéaire:</p>
+<p>Comme <span class="math notranslate nohighlight">\(A(u) = f\)</span> est équivalent à <span class="math notranslate nohighlight">\(\forall v\in V, \PS{A(u)}{v} = \PS{f}{v}\)</span>, alors notre formulation faible <a class="reference internal" href="#equation-eq-fvlax">(3.3)</a> devient équivalent au problème linéaire:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{
   \begin{array}{l}
@@ -409,8 +410,8 @@ document.write(`
 \[\alpha\|w\|^2 \leq \abs{\PS{A(w)}{w}} \leq \|A(w)\|\|w\|,\]</div>
 <p>ce qui implique que</p>
 <div class="math notranslate nohighlight" id="equation-eq-demolax">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-demolax" title="Lien permanent vers cette équation">#</a></span>\[\alpha\|w\|\leq\|A(w)\|.\]</div>
-<p>Comme <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span>, alors <span class="math notranslate nohighlight">\(A\)</span> est injective. En dimension finie et comme <span class="math notranslate nohighlight">\(A\)</span> est un endomorphisme, nous pourrions en déduire la surjectivité de <span class="math notranslate nohighlight">\(A\)</span>. Mais nous sommes malheureusement en dimension infinie, nous devons donc montrer que <span class="math notranslate nohighlight">\(\Image(A) = V\)</span>, pour cela nous montrons que <span class="math notranslate nohighlight">\(\Image(A)\)</span> est fermé dans <span class="math notranslate nohighlight">\(V\)</span> et que son orthogonal (dans <span class="math notranslate nohighlight">\(V\)</span>) est réduit au singleton nul. Prenons une suite <span class="math notranslate nohighlight">\((A(w_n))_n\)</span> de <span class="math notranslate nohighlight">\(\Image(A)\)</span> qui converge dans <span class="math notranslate nohighlight">\(V\)</span>. Nous avons, pour tout <span class="math notranslate nohighlight">\(n,p\in\Nb\)</span> et grâce à <a class="reference internal" href="#equation-eq-demolax">(2.4)</a>,</p>
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-demolax" title="Lien permanent vers cette équation">#</a></span>\[\alpha\|w\|\leq\|A(w)\|.\]</div>
+<p>Comme <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span>, alors <span class="math notranslate nohighlight">\(A\)</span> est injective. En dimension finie et comme <span class="math notranslate nohighlight">\(A\)</span> est un endomorphisme, nous pourrions en déduire la surjectivité de <span class="math notranslate nohighlight">\(A\)</span>. Mais nous sommes malheureusement en dimension infinie, nous devons donc montrer que <span class="math notranslate nohighlight">\(\Image(A) = V\)</span>, pour cela nous montrons que <span class="math notranslate nohighlight">\(\Image(A)\)</span> est fermé dans <span class="math notranslate nohighlight">\(V\)</span> et que son orthogonal (dans <span class="math notranslate nohighlight">\(V\)</span>) est réduit au singleton nul. Prenons une suite <span class="math notranslate nohighlight">\((A(w_n))_n\)</span> de <span class="math notranslate nohighlight">\(\Image(A)\)</span> qui converge dans <span class="math notranslate nohighlight">\(V\)</span>. Nous avons, pour tout <span class="math notranslate nohighlight">\(n,p\in\Nb\)</span> et grâce à <a class="reference internal" href="#equation-eq-demolax">(3.4)</a>,</p>
 <div class="math notranslate nohighlight">
 \[\alpha\|w_n - w_p\|\leq\|A(w_n) - A(w_p)\|.\]</div>
 <p>Quand <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> tendent vers l’infini, alors <span class="math notranslate nohighlight">\(\|w_n - w_p\| \to 0\)</span>. La suite <span class="math notranslate nohighlight">\((w_n)_n\)</span> est donc une suite de Cauchy dans <span class="math notranslate nohighlight">\(V\)</span>, qui est complet (Hilbert), elle est donc convergente et converge vers un élément <span class="math notranslate nohighlight">\(w\)</span> de <span class="math notranslate nohighlight">\(V\)</span>. Par continuité de <span class="math notranslate nohighlight">\(A\)</span>, la suite <span class="math notranslate nohighlight">\((A(w_n))_n\)</span> converge vers <span class="math notranslate nohighlight">\(A(w)\)</span>, élément de <span class="math notranslate nohighlight">\(\Image(A)\)</span>. Ce qui implique que <span class="math notranslate nohighlight">\(\Image(A)\)</span> est fermé. Prenons maintenant <span class="math notranslate nohighlight">\(v\in \Image(A)^{\perp}\)</span>, par la coercivité de <span class="math notranslate nohighlight">\(a(\cdot,\cdot)\)</span>, nous avons</p>
@@ -419,13 +420,13 @@ document.write(`
 <p>Autrement dit, <span class="math notranslate nohighlight">\(v=0\)</span> et donc <span class="math notranslate nohighlight">\(\Image(A)^\perp = \{0\}\)</span> et nous avons</p>
 <div class="math notranslate nohighlight">
 \[\Image(A) = \overline{\Image(A)} = \left(\Image(A)^{\perp}\right)^{\perp} = \{0\}^{\perp} = V.\]</div>
-<p>L’application <span class="math notranslate nohighlight">\(A\)</span> est donc bijective. Son inverse <span class="math notranslate nohighlight">\(A^{-1}\)</span> existe, et, avec <a class="reference internal" href="#equation-eq-demolax">(2.4)</a>, nous obtenons sa continuité :</p>
+<p>L’application <span class="math notranslate nohighlight">\(A\)</span> est donc bijective. Son inverse <span class="math notranslate nohighlight">\(A^{-1}\)</span> existe, et, avec <a class="reference internal" href="#equation-eq-demolax">(3.4)</a>, nous obtenons sa continuité :</p>
 <div class="math notranslate nohighlight">
 \[\forall w\in V, \qquad \norm{A^{-1}(w)}\leq \frac{1}{\alpha}\norm{w}.\]</div>
 <p>Ceci prouve que <span class="math notranslate nohighlight">\(u\)</span> dépend continûment du membre de droite <span class="math notranslate nohighlight">\(f\)</span> (qui dépend de <span class="math notranslate nohighlight">\(\ell\)</span>).</p>
 </div>
 <div class="proof remark admonition" id="remark-1">
-<p class="admonition-title"><span class="caption-number">Remark 2.8 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 3.8 </span></p>
 <section class="remark-content" id="proof-content">
 <p>À quoi sert ce théorème ? Sous réserve de 4 hypothèses, nous aurons la garantie que la formulation faible obtenue précédemment admet une solution (ce qui est bien) et que cette solution est unique (encore mieux !). Il est donc d’une importance capitale.</p>
 </section>
@@ -450,7 +451,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Formulation Faible</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>Formulation Faible</p>
       </div>
     </a>
     <a class="right-next"
@@ -458,7 +459,7 @@ document.write(`
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title"><span class="section-number">2.4. </span>Espaces de Sobolev</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Espaces de Sobolev</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
