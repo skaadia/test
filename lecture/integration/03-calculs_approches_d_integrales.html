@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.3. Calculs approchés d’intégrales &#8212; Recueil d&#39;Exercices Classiques de Mathématiques</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"tex": {"macros": {"dsp": "{\\displaystyle}", "gD": "{g_D}", "gN": "{g_N}", "GammaN": "{\\Gamma_N}", "GammaD": "{\\Gamma_D}", "GammaF": "\\Gamma_F", "Lo": "{L^2(\\Omega)}", "Ho": "{H^1(\\Omega)}", "Hoz": "{H^1_{0}(\\Omega)}", "HoD": "{H^1_{\\GammaD}(\\Omega)}", "Hog": "{H^1_{\\gD}(\\Omega)}", "Hoo": "{H^2(\\Omega)}", "Vh": "{V_h}", "Vhz": "{V_{h,0}}", "VhD": "{V_{h,\\GammaD}}", "abs": ["{\\left|#1\\right|}", 1], "norm": ["{\\left\\|#1\\right\\|}", 1], "PS": ["{\\left(#1,#2\\right)}", 2], "PSL": ["{\\PS{#1}{#2}_{\\Lo}}", 2], "PSLd": ["{\\PS{#1}{#2}_{\\Lo^d}}", 2], "PSH": ["{\\PS{#1}{#2}_{\\Ho}}", 2], "PSV": ["{\\PS{#1}{#2}_{V}}", 2], "normL": ["{\\norm{#1}_{\\Lo}}", 1], "normLd": ["{\\norm{#1}_{(\\Lo)^d}}", 1], "normH": ["{\\norm{#1}_{\\Ho}}", 1], "normV": ["{\\norm{#1}_{V}}", 1], "ut": "{u_t}", "uh": "{u_h}", "vh": "{v_h}", "Ahh": "{A}", "Bh": "{B}", "Uh": "{U}", "Rb": "{\\mathbb{R}}", "Nb": "{\\mathbb{N}}", "nn": "{\\mathbf{n}}", "dn": "{\\partial_{\\nn}}", "ee": "{\\mathbf{e}}", "xx": "{\\mathbf{x}}", "yy": "{\\mathbf{y}}", "zz": "{\\mathbf{z}}", "diff": "{\\mathrm{d}}", "d": "{\\,\\mathrm{d}}", "Cscr": "{\\mathscr{C}}", "Ccal": "{\\mathcal{C}}", "mphi": "{\\varphi}", "mphih": "{\\widehat{\\varphi}}", "psih": "{\\widehat{\\psi}}", "gh": "{\\widehat{g}}", "deltaij": "{\\delta_{ij}}", "tri": "{K}", "trih": "{\\widehat{K}}", "vertice": "{\\mathbf{s}}", "verticeK": ["{\\vertice^{#1}}", 1], "verticeh": "{\\widehat{\\vertice}}", "grandO": ["{O\\left(#1\\right)}", 1], "Nh": "{N_h}", "Ns": "{N_s}", "Nt": "{N_t}", "Pb": "{\\mathbb{P}}", "Sh": "{\\mathscr{S}_h}", "Th": "{\\mathscr{T}_h}", "Ah": "{\\mathscr{A}_h}", "card": "{\\textrm{card}}", "supp": "{\\textrm{supp}}", "diam": "{\\textrm{diam}}", "Image": "{\\textrm{Im}}", "locToGlob": "{\\texttt{L2G}}", "trihToTri": ["{T_{#1}}", 1], "JK": ["{J_{#1}}", 1], "BK": ["{B_{#1}}", 1], "Meh": "{\\widehat{M}^e}", "Deh": "{\\widehat{D}^e}", "Me": ["{M^e_{#1}}", 1], "De": ["{D^e_{#1}}", 1], "enstq": ["{\\left\\{#1 \\mathrel{}\\middle|\\mathrel{}#2\\right\\}}", 2], "interoo": ["{\\mathopen{\\left]}#1\\,;#2\\mathclose{\right[}}", 2], "interff": ["{\\mathopen{\\left[}#1\\,;#2\\mathclose{\right]}}", 2], "interof": ["{\\mathopen{\\left]}#1\\,;#2\\mathclose{\right]}}", 2], "interfo": ["{\\mathopen{\\left[}#1\\,;#2\\mathclose{\right[}}", 2], "interent": ["{\\llbracket #1\\,;#2\rrbracket}", 2]}}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture/integration/03-calculs_approches_d_integrales';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="2. Simulation Numérique" href="../numerical-simulation/index.html" />
+    <link rel="prev" title="1.2. Lemme de Lebesgue" href="02-lemme_de_lebesgue.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Recueil d'Exercices Classiques de Mathématiques</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières :</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Chapitres</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">1. Intégration</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01-une_propriete_geometrique_de_l_integrale.html">1.1. Interprétation géométrique de l’intégration par parties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-lemme_de_lebesgue.html">1.2. Lemme de Lebesgue</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">1.3. Calculs approchés d’intégrales</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numerical-simulation/index.html">2. Simulation Numérique</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/EDP.html">2.1. Quelques exemples d’EDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical-simulation/industrie.html">2.2. Industrie</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../weak-solution/index.html">3. Formulations Faibles</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/rappels.html">3.1. Espaces de Hilbert : rappels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/weak-formulation.html">3.2. Formulation Faible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/lax-milgram.html">3.3. Théorème de Lax-Milgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/sobolev-spaces.html">3.4. Espaces de Sobolev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weak-solution/exemple.html">3.5. Application au problème modèle</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements-finis-triangulaires/index.html">4. Éléments Finis Triangulaires</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/galerkin.html">4.1. Méthode de Galerkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/espace-p1.html">4.2. Espace <span class="math notranslate nohighlight">\(\Pb^1\)</span>-Lagrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/assemblage.html">4.3. Assemblage des Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/contributions-elementaires.html">4.4. Calcul des Matrices Élémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../elements-finis-triangulaires/matrice-creuse.html">4.5. Matrice Creuse</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../boundary-conditions/index.html">5. Conditions aux bords</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/neumann-heterogene.html">5.1. Conditions de Neumann hétérogène</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/dirichlet.html">5.2. Condition de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boundary-conditions/fourier.html">5.3. Condition de Fourier</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../advanced/index.html">6. Avancée</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/error.html">6.1. Erreur comise et convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/p2.html">6.2. Éléments Finis <span class="math notranslate nohighlight">\(\Pb^2\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../numeric/index.html">Implémentation</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numeric/gmsh/index.html">1. Maillage avec GMSH</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/gmsh/mesh.html">1.1. Prise en main de GMSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/gmsh/api.html">1.2. API GMSH</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numeric/python/index.html">2. Solveur FEM Python</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/sparse.html">2.1. Matrices Creuses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/mesh.html">2.2. Gestion du maillage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/mass-stiffness.html">2.3. Matrices de Masse et de Rigidité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/quadrature.html">2.4. Quadratures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/dirichlet.html">2.5. Conditions de Dirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numeric/python/solve.html">2.6. Résolution et Analyse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../projet/index.html">Projet</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2017-2018/index.html">1. 2017 - 2018 : Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projet/2020-2021/index.html">2. 2020 - 2021</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Version PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apropos/index.html">À propos de ce site</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/armandwayoff/RECM">Dépôt GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/armandwayoff/RECM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Dépôt source"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lecture/integration/03-calculs_approches_d_integrales.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Calculs approchés d’intégrales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-rectangles-a-gauche">1.3.1. Méthode des rectangles à gauche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-rectangles-medians">1.3.2. Méthode des rectangles médians</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-trapezes">1.3.3. Méthode des trapèzes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-simpson">1.3.4. Méthode de Simpson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-ensuite">1.3.5. Et ensuite ?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="calculs-approches-dintegrales">
+<h1><span class="section-number">1.3. </span>Calculs approchés d’intégrales<a class="headerlink" href="#calculs-approches-dintegrales" title="Lien permanent vers ce titre">#</a></h1>
+<p>Nous abordons dans cette section quelques méthodes dont le but est
+d’estimer la valeur numérique de l’intégrale d’une fonction donnée
+<span class="math notranslate nohighlight">\(f\)</span> définie sur un domaine borné <span class="math notranslate nohighlight">\(\interff{a}{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[I = \int_a^b f(t) \d t.\]</div>
+<p>Ces méthodes nous fourniront une valeur approchée <span class="math notranslate nohighlight">\(\widetilde{I}\)</span>
+de l’intégrale <span class="math notranslate nohighlight">\(I\)</span> de sorte que</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{I} \approx I.\]</div>
+<p>Soient <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> désignent deux réels tels que
+<span class="math notranslate nohighlight">\(a &lt; b\)</span>. Pour tout entier naturel <span class="math notranslate nohighlight">\(p\)</span> non nul, on note
+<span class="math notranslate nohighlight">\((x_i)_{i\in\llbracket 0, p \rrbracket}\)</span> la subdivision régulière
+de <span class="math notranslate nohighlight">\([a, b]\)</span> de pas <span class="math notranslate nohighlight">\(\frac{b-a}{p}\)</span>. Ainsi, pour tout
+<span class="math notranslate nohighlight">\(i \in \llbracket 0, p \rrbracket\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[x_i = a + i \frac{b-a}{p}.\]</div>
+<div class="defi docutils container">
+<p>Une méthode d’intégration est d’<em>ordre</em> au moins <span class="math notranslate nohighlight">\(n\)</span> si elle
+est exacte (<em>i.e.</em> <span class="math notranslate nohighlight">\(\widetilde{I} = I\)</span>) pour les polynômes de
+degrés inférieurs ou égaux <span class="math notranslate nohighlight">\(n\)</span> et non exacte pour au moins un
+polynôme de degré <span class="math notranslate nohighlight">\(n+1\)</span>.</p>
+</div>
+<section id="methode-des-rectangles-a-gauche">
+<h2><span class="section-number">1.3.1. </span>Méthode des rectangles à gauche<a class="headerlink" href="#methode-des-rectangles-a-gauche" title="Lien permanent vers ce titre">#</a></h2>
+<p>La méthode des rectangles à gauche consiste, pour chacun des intervalles
+de la subdivision, à approcher l’aire sous la courbe représentative de
+<span class="math notranslate nohighlight">\(f\)</span> par celle d’un rectangle dont la hauteur correspond à la
+valeur de <span class="math notranslate nohighlight">\(f\)</span> sur la borne de gauche. Plus précisément, on
+considère la quantité :</p>
+<div class="math notranslate nohighlight">
+\[I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).\]</div>
+<div class="prop docutils container">
+<p>La méthode des rectangles à gauche est d’ordre <span class="math notranslate nohighlight">\(0\)</span>. De plus, si
+<span class="math notranslate nohighlight">\(f\)</span> est de classe <span class="math notranslate nohighlight">\(\mathscr{C}^1\)</span>, l’erreur commise est
+en <span class="math notranslate nohighlight">\(O(1/p)\)</span>.</p>
+</div>
+<div class="elem-sol docutils container">
+<p>On suppose que <span class="math notranslate nohighlight">\(f\)</span> désigne une fonction de classe
+<span class="math notranslate nohighlight">\(\mathscr{C}^1\)</span> sur le segment <span class="math notranslate nohighlight">\(\interff{a}{b}\)</span>. On note
+<span class="math notranslate nohighlight">\(F\)</span> une primitive de <span class="math notranslate nohighlight">\(f\)</span> et
+<span class="math notranslate nohighlight">\(M_1 = \sup_{\interff{a}{b}} \module{f'}\)</span>.</p>
+<ol class="arabic">
+<li><p>D’après la formule de Taylor avec reste intégal, pour tout
+<span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leq \frac{M_1}{2} (x_{i+1}-x_i)^2.\]</div>
+</li>
+<li><p>En utilisant la relation de Chasles,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\module{\int_{\interff{a}{b}} f - I_p^\mathrm{g}(f)}
+&amp;\leq \sum_{i=1}^{p-1} \module{\int_{\interff{x_i}{x_{i+1}}} f - (x_{i+1} - x_i) f(x_i)}\\
+&amp;\leq \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2\\
+% &amp;\leq \frac{M_1}{2} (b - a) \sum_{i=1}^{p-1} (x_{i+1} - x_i)\\
+&amp;\leq \frac{M_1 (b-a)^2}{2 p}.
+\end{aligned}\end{split}\]</div>
+</li>
+<li><p>De plus, on montre que cette borne est atteinte pour
+<span class="math notranslate nohighlight">\(f : x \mapsto x - a\)</span>.</p></li>
+<li><p>La méthode des rectangles à gauche est exacte si <span class="math notranslate nohighlight">\(f\)</span> est
+constante. Cependant, le calcul précédent montre que si
+<span class="math notranslate nohighlight">\(f : x \mapsto x - a\)</span>, alors la méthode ne donne pas la
+valeur exacte de l’intégrale. La méthode est donc d’ordre
+<span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="methode-des-rectangles-medians">
+<h2><span class="section-number">1.3.2. </span>Méthode des rectangles médians<a class="headerlink" href="#methode-des-rectangles-medians" title="Lien permanent vers ce titre">#</a></h2>
+<p>La méthode des rectangles médians consiste, pour chacun des intervalles
+de la subdivision, à approcher l’aire sous la courbe représentative de
+<span class="math notranslate nohighlight">\(f\)</span> par celle d’un rectangle dont la hauteur correspond à la
+valeur de <span class="math notranslate nohighlight">\(f\)</span> au milieu de la subdivision. Plus précisément, on
+considère la quantité :</p>
+<div class="math notranslate nohighlight">
+\[I_p^\mathrm{m}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right).\]</div>
+<div class="prop docutils container">
+<p>La méthode des rectangles médians est d’ordre <span class="math notranslate nohighlight">\(1\)</span>. De plus, si
+<span class="math notranslate nohighlight">\(f\)</span> est de classe <span class="math notranslate nohighlight">\(\mathscr{C}^2\)</span>, l’erreur commise est
+en <span class="math notranslate nohighlight">\(O(1/p^2)\)</span>.</p>
+</div>
+<div class="elem-sol docutils container">
+<p>On suppose que <span class="math notranslate nohighlight">\(f\)</span> désigne une fonction de classe
+<span class="math notranslate nohighlight">\(\mathscr{C}^2\)</span> sur le segment <span class="math notranslate nohighlight">\(\interff{a}{b}\)</span>. On note
+<span class="math notranslate nohighlight">\(F\)</span> une primitive de <span class="math notranslate nohighlight">\(f\)</span> et
+<span class="math notranslate nohighlight">\(M_2 = \sup_{\interff{a}{b}} \module{f''}\)</span>. Pour tout entier
+<span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>, on pose
+<span class="math notranslate nohighlight">\(\gamma_i = \frac{x_i + x_{i+1}}{2}\)</span> le milieu du segment
+<span class="math notranslate nohighlight">\(\interff{x_i}{x_{i+1}}\)</span>.</p>
+<ol class="arabic">
+<li><p>Soit <span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>. Un simple calcul ou le
+graphique suivant permet de montrer que :</p>
+<div class="math notranslate nohighlight">
+\[(x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.\]</div>
+<figure class="margin align-default">
+<img alt="image" src="../../_images/rectangles_medians.png" />
+</figure>
+</li>
+<li><p>Ainsi, d’après la formule de Taylor avec reste intégral,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
+&amp;= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}\\
+&amp;\leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
+\end{aligned}\end{split}\]</div>
+</li>
+<li><p>Comme pour la méthode des rectangles à gauche, la formule de
+Chasles permet de montrer que</p>
+<div class="math notranslate nohighlight">
+\[\module{\int_{[a,b]} f - I_p^\mathrm{m}(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}.\]</div>
+</li>
+<li><p>De plus, on montre que cette borne est atteinte pour
+<span class="math notranslate nohighlight">\(f : x \mapsto (x - a)^2\)</span>.</p></li>
+<li><p>La méthode des rectangles médians est exacte si <span class="math notranslate nohighlight">\(f\)</span> est un
+polynôme de degré <span class="math notranslate nohighlight">\(1\)</span>. Cependant, si <span class="math notranslate nohighlight">\(f\)</span> est la
+fonction <span class="math notranslate nohighlight">\(x \mapsto (x - a)^2\)</span>, le calcul précédent montre
+que la méthode des rectangles médians ne donne pas la valeur
+exacte de l’intégrale. La méthode est donc d’ordre <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="methode-des-trapezes">
+<h2><span class="section-number">1.3.3. </span>Méthode des trapèzes<a class="headerlink" href="#methode-des-trapezes" title="Lien permanent vers ce titre">#</a></h2>
+<p>La méthode des trapèzes consiste, pour chacun des intervalles de la
+subdivision, à approcher l’aire sous la courbe représentative de
+<span class="math notranslate nohighlight">\(f\)</span> par celle d’un trapèze. Plus précisément, on considère la
+quantité :</p>
+<div class="math notranslate nohighlight">
+\[I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.\]</div>
+<div class="prop docutils container">
+<p>La méthode des trapèzes est d’ordre <span class="math notranslate nohighlight">\(2\)</span>. De plus, si <span class="math notranslate nohighlight">\(f\)</span>
+est de classe <span class="math notranslate nohighlight">\(\mathscr{C}^2\)</span>, l’erreur commise est en
+<span class="math notranslate nohighlight">\(O(1/p^2)\)</span>.</p>
+</div>
+<div class="elem-sol docutils container">
+<p>On suppose que <span class="math notranslate nohighlight">\(f\)</span> est une fonction de classe
+<span class="math notranslate nohighlight">\(\mathscr{C}^2\)</span> et on note
+<span class="math notranslate nohighlight">\(M_2 = \sup_{[a,b]} \module{f''}\)</span>. Pour tout
+<span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>, on note <span class="math notranslate nohighlight">\(\phi_i\)</span>
+l’approximation affine sur <span class="math notranslate nohighlight">\(\interff{x_i}{x_{i+1}}\)</span> de
+<span class="math notranslate nohighlight">\(f\)</span> et <span class="math notranslate nohighlight">\(g_i = f - \phi_i\)</span>.</p>
+<ol class="arabic">
+<li><p>À l’aide de deux intégrations par parties successives, on montre
+que, pour tout <span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_i}^{x_{i+1}} f''(t) (t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.\]</div>
+</li>
+<li><p>D’après la relation précédente, on établit que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
+&amp;\leq \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
+&amp;\leq \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
+&amp;\leq \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
+\end{aligned}\end{split}\]</div>
+</li>
+<li><p>Comme pour les méthodes précédentes, on utilise ensuite la
+relation de Chasles pour obtenir</p>
+<div class="math notranslate nohighlight">
+\[\module{\int_{[a,b]} f - I_p^\mathrm{t}(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.\]</div>
+</li>
+<li><p>De plus, on montre que cette borne est atteinte pour
+<span class="math notranslate nohighlight">\(f : x \mapsto (x - a)^2\)</span>.</p></li>
+<li><p>La méthode des trapèzes est exacte si <span class="math notranslate nohighlight">\(f\)</span> est un polynôme de
+degré <span class="math notranslate nohighlight">\(1\)</span>. Cependant, si <span class="math notranslate nohighlight">\(f\)</span> est la fonction
+<span class="math notranslate nohighlight">\(x \mapsto (x - a)^2\)</span>, le calcul précédent montre qur la
+méthode des trapèzes ne donne pas la valeur exacte de l’intégrale.
+La méthode est donc d’ordre <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
+</ol>
+</div>
+<div class="remarque docutils container">
+<p>Lorsque <span class="math notranslate nohighlight">\(f\)</span> est de classe <span class="math notranslate nohighlight">\(\mathscr{C}^2\)</span> et convexe,
+alors <span class="math notranslate nohighlight">\(f'' \geq 0\)</span> et, pour tout <span class="math notranslate nohighlight">\(p\)</span> entier naturel,
+<span class="math notranslate nohighlight">\(\int_{[a,b]} f \leq I_p^\mathrm{t}(f)\)</span>. On obtient ainsi une
+valeur approchée par excès de l’intégrale.</p>
+</div>
+</section>
+<section id="methode-de-simpson">
+<h2><span class="section-number">1.3.4. </span>Méthode de Simpson<a class="headerlink" href="#methode-de-simpson" title="Lien permanent vers ce titre">#</a></h2>
+<p>La méthode de Simpson consiste, pour chacun des intervalles de la
+subdivision, à approcher la fonction <span class="math notranslate nohighlight">\(f\)</span> par un polynôme de degré
+inférieur ou égal à <span class="math notranslate nohighlight">\(2\)</span>. Plus précisément, on considère la
+quantité :</p>
+<div class="math notranslate nohighlight">
+\[I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].\]</div>
+<div class="prop docutils container">
+<p>Dans la méthode de Simpson, si <span class="math notranslate nohighlight">\(f\)</span> est de classe
+<span class="math notranslate nohighlight">\(\mathscr{C}^4\)</span>, l’erreur commise est en <span class="math notranslate nohighlight">\(O(1/p^4)\)</span>.</p>
+</div>
+<div class="elem-sol docutils container">
+<p>On suppose que <span class="math notranslate nohighlight">\(f\)</span> est une fonction de classe
+<span class="math notranslate nohighlight">\(\mathscr{C}^4\)</span> sur le segment <span class="math notranslate nohighlight">\([a, b]\)</span>. On pose
+<span class="math notranslate nohighlight">\(M_4 = \sup_{[a,b]} \module{f^{(4)}}\)</span>.</p>
+<p>Pour tout <span class="math notranslate nohighlight">\(i \in \interent{0}{p-1}\)</span>, notons
+<span class="math notranslate nohighlight">\(\gamma_i = \frac{x_i + x_{i+1}}{2}\)</span> le milieu de la
+subdivision et <span class="math notranslate nohighlight">\(h_i = \frac{x_{i+1} - x_i}{2}\)</span> la moitié de sa
+longueur.</p>
+<ol class="arabic">
+<li><p>D’après la formule de Taylor avec reste intégral appliquée à une
+primitive <span class="math notranslate nohighlight">\(F\)</span> de <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+F(\gamma_i + h_i)
+&amp;= \begin{aligned}[t]F(\gamma_i) + h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) + \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i + t h_i) \d t,\\
+\end{aligned} \\
+f(\gamma_i - h_i)
+&amp;= \begin{aligned}[t]F(\gamma_i) - h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) - \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ - \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i - t h_i) \d t.
+\end{aligned}
+\end{aligned}\end{split}\]</div>
+<p>Comme <span class="math notranslate nohighlight">\(\gamma_i - h_i = x_i\)</span> et
+<span class="math notranslate nohighlight">\(\gamma_i + h_i = x_{i+1}\)</span>, en soustrayant les deux
+relations précédentes, on obtient</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+F(x_{i+1}) - F(x_i)
+&amp;= 2 h_i f(\gamma_i) + \frac{h_i^3}{3} f''(\gamma_i) + \frac{h_i^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+% \\
+% \int_{x_i}^{x_{i+1}} f(t) \d t
+% &amp;= \frac{b - a}{p} f(\gamma_i) + \frac{(b - a)^3}{24 p^3} f''(\gamma_i) + \frac{(b - a)^5}{32 \times 24 p^5} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+\end{aligned}\end{split}\]</div>
+<p>Ainsi,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp;\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}\\
+&amp;\leq \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i^2 f''(\gamma_i)\right]} + \frac{h_i^5 2 M_4}{5! p^5}.
+\end{aligned}\end{split}\]</div>
+</li>
+<li><p>En utilisant la formule de Taylor avec reste intégral pour la
+fonction <span class="math notranslate nohighlight">\(f\)</span> sur <span class="math notranslate nohighlight">\([\gamma_i - h_i, \gamma_i]\)</span> et
+<span class="math notranslate nohighlight">\([\gamma_i, \gamma_i + h_i]\)</span>, on obtient comme précédemment</p>
+<div class="math notranslate nohighlight">
+\[\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i^2 f(\gamma_i)} \leq \frac{h_i^4 \times 2 M_4}{4!}.\]</div>
+</li>
+<li><p>Finalement,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
+&amp;\leq h_i^5 \left[\frac{2}{3 \times 4!} + \frac{2}{5!}\right]\\
+&amp;\leq \frac{2 h_i^5}{45}
+\leq \frac{(x_{i+1} - x_i)^5}{720}.
+\end{aligned}\end{split}\]</div>
+</li>
+<li><p>On conclut à l’aide de la relation de Chasles :</p>
+<div class="math notranslate nohighlight">
+\[\module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{720 p^4}.\]</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="et-ensuite">
+<h2><span class="section-number">1.3.5. </span>Et ensuite ?<a class="headerlink" href="#et-ensuite" title="Lien permanent vers ce titre">#</a></h2>
+<p>Nous constatons que, pour chacune des méthodes précédentes, la stratégie
+est identique :</p>
+<ul>
+<li><p>découper le segment en une subdivision régulière
+<span class="math notranslate nohighlight">\(a = x_0 \leq \cdots \leq x_n = b\)</span>,</p></li>
+<li><p>sur chacun des intervalles de cette subdivision, approcher la
+fonction par une fonction dont l’intégrale est plus simple.</p>
+<p>Sur l’intervalle <span class="math notranslate nohighlight">\([x_i, x_{i+1}]\)</span> : pour la méthode des
+rectangles, on approche la fonction par une droite horizontale, pour
+celle des trapèzes, par une droite affine passant par les points
+<span class="math notranslate nohighlight">\((x_i, f(x_i))\)</span> et <span class="math notranslate nohighlight">\((x_{i+1}, f(x_{i+1}))\)</span>.</p>
+</li>
+</ul>
+<p>Plus généralement, on peut découper le segment <span class="math notranslate nohighlight">\([x_i, x_{i+1}]\)</span> en
+une subdivision régulière
+<span class="math notranslate nohighlight">\(x_i = y_{i,0} \leq \ldots \leq y_{i,p} \leq x_{i+1}\)</span>. On peut
+ensuite approcher la fonction par le polynôme d’interpolation de
+Lagrange qui passe par les points de coordonnées
+<span class="math notranslate nohighlight">\((y_{i,0}, f(y_{i,0}), \ldots, (y_{i,p}, f(y_{i,p}))\)</span>.</p>
+<p>Cette méthode est appelée <em>méthode de Newton–Cotes</em>.</p>
+<p>Plus précisément, on considère une subdivision
+<span class="math notranslate nohighlight">\(0 = y_0 \leq \ldots \leq y_p = 1\)</span> de l’intervalle
+<span class="math notranslate nohighlight">\(\interff{0}{1}\)</span> et on note <span class="math notranslate nohighlight">\((L_0,\ldots,L_p)\)</span> la famille
+des <a class="reference external" href="#sec:polynomes_de_lagrange">polynômes d’interpolation de
+Lagrange</a> associée à cette subdivision,
+i.e.</p>
+<div class="math notranslate nohighlight">
+\[\forall\ i \in \interent{0}{p},\, L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.\]</div>
+<p>On pose alors <span class="math notranslate nohighlight">\(\lg_j = \int_0^1 L_j(t) \d t\)</span>.</p>
+<p>On approche alors l’intégrale de <span class="math notranslate nohighlight">\(f\)</span> sur <span class="math notranslate nohighlight">\([x_i, x_{i+1}]\)</span>
+par la somme</p>
+<div class="math notranslate nohighlight">
+\[I_p^i(f) = (x_{i+1} - x_i) \sum_{j=0}^p \lg_j g(x_i + (x_{i+1} - x_i) y_j),\]</div>
+<p>puis l’intégrale sur le segment <span class="math notranslate nohighlight">\([a, b]\)</span> par</p>
+<div class="math notranslate nohighlight">
+\[I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \sum_{j=0}^p \lg_j f(x_i + (x_{i+1} - x_i) y_j).\]</div>
+<p>On peut montrer que :</p>
+<ul class="simple">
+<li><p>lorsque <span class="math notranslate nohighlight">\(n = 1\)</span>, on retrouve la formule des trapèzes.</p></li>
+<li><p>lorque <span class="math notranslate nohighlight">\(n = 2\)</span>, on retrouve la méthode de Simpson.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">On peut montrer que la méthode de Simpson est d’ordre <span class="math notranslate nohighlight">\(3\)</span>. On
+peut augmenter le nombre des nœuds où est évaluée la fonction à
+intégrer (<span class="math notranslate nohighlight">\(2\)</span> nœuds pour la méthode des trapèzes, <span class="math notranslate nohighlight">\(3\)</span> pour
+la méthode de Simpson,…). Cependant, lorsque le nombre de nœuds
+dépasse <span class="math notranslate nohighlight">\(8\)</span>, des coefficients négatifs apparaissent ce qui
+engendre des erreurs d’arrondis.</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-lemme_de_lebesgue.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Lemme de Lebesgue</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../numerical-simulation/index.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Simulation Numérique</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-rectangles-a-gauche">1.3.1. Méthode des rectangles à gauche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-rectangles-medians">1.3.2. Méthode des rectangles médians</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-trapezes">1.3.3. Méthode des trapèzes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-simpson">1.3.4. Méthode de Simpson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-ensuite">1.3.5. Et ensuite ?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Armand Wayoff
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024, Bertrand Thierry.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
