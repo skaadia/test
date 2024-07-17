@@ -142,6 +142,7 @@ mathjax3_config = {
             'yy': '{\\mathbf{y}}',
             'zz': '{\\mathbf{z}}',
             'diff': '{\\mathrm{d}}',
+            'd': '{\,\\mathrm{d}}',
             'Cscr': '{\\mathscr{C}}',
             'Ccal': '{\\mathcal{C}}',
             'mphi': '{\\varphi}',
