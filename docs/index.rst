@@ -2,6 +2,9 @@
 Recueil d'Exercices Classiques de Mathématiques
 ===============================================
 
+
+**Niveau classes préparatoires (PSI-PC), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques**
+
 Le code source du cours est `disponible librement sur github <https://github.com/armandwayoff/RECM>`_, n'hésitez pas à envoyer des remarques, typos, corrections, ... ! 
 
 ```{margin} Look, some margin content!

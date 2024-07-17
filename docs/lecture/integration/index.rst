@@ -9,4 +9,5 @@ Intégration
   :maxdepth: 1
 
   01-une_propriete_geometrique_de_l_integrale
-  
+  02-lemme_de_lebesgue
+  03-calculs_approches_d_integrales

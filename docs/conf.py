@@ -175,7 +175,12 @@ mathjax3_config = {
             'Deh':'{\\widehat{D}^e}', 
             'Me':['{M^e_{#1}}', 1], 
             'De':['{D^e_{#1}}', 1], 
-            'enstq':['{\\left\\{#1 \\mathrel{}\\middle|\\mathrel{}#2\\right\\}}',2]
+            'enstq':['{\\left\\{#1 \\mathrel{}\\middle|\\mathrel{}#2\\right\\}}',2],
+            'interoo':['{\mathopen{\left]}#1\,;#2\mathclose{\right[}}', 2],
+            'interff':['{\mathopen{\left[}#1\,;#2\mathclose{\right]}}', 2],
+            'interof':['{\mathopen{\left]}#1\,;#2\mathclose{\right]}}', 2],
+            'interfo':['{\mathopen{\left[}#1\,;#2\mathclose{\right[}}', 2],
+            'interent':['{\llbracket #1\,;#2\rrbracket}', 2],
             }
         }   
     }
