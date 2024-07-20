@@ -10,9 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
+
+from definition_directive import setup as definition_setup
 
 # import sphinx_rtd_theme
 
@@ -30,7 +32,7 @@ author = 'Armand Wayoff'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-extensions = ["sphinx_proof", "sphinx_exercise", "sphinx_togglebutton", "sphinx_copybutton"]
+extensions = ["sphinx_proof", "sphinx_exercise", "sphinx_togglebutton", "sphinx_copybutton", "sphinxcontrib.proof"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -61,6 +63,20 @@ html_theme = "sphinx_book_theme"
 
 html_title = "Recueil d'Exercices Classiques de Mathématiques"
 
+
+proof_theorem_types = {
+   "algorithm": "Algorithm",
+   "conjecture": "Conjecture",
+   "corollary": "Corollary",
+   "definition": "Définition",
+   "example": "Example",
+   "lemma": "Lemma",
+   "observation": "Observation",
+   "proof": "Proof",
+   "property": "Property",
+   "theorem": "Theorem",
+}
+
 # html_logo = "img/logo/logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -80,6 +96,10 @@ html_css_files = [
     'css/custom.css',
 ]
 
+def setup(app):
+    app.add_css_file('custom.css')
+    definition_setup(app)
+
 html_js_files = [
 #    'js/basis-function/main.js',
 #    'js/jacobian/main.js',
@@ -93,7 +113,7 @@ latex_elements = {}
 latex_elements['preamble'] = '\\usepackage{amsmath}\n\\usepackage{amssymb}\n\\usepackage{amsthm}\n'
 latex_elements['babel'] = '\\usepackage{babel}'
 latex_additional_files = ['mystyle.sty', 'img/normal/normal.tex']
-latex_elements['extrapackages'] = '\\usepackage{tikz}\n\\usetikzlibrary{arrows, calc, fit}\n\\usepackage{standalone}\n\\usepackage{mathrsfs}\n\\usepackage{mystyle}'
+latex_elements['extrapackages'] = '\\usepackage{tikz}\n\\usetikzlibrary{arrows, calc, fit}\n\\usepackage{standalone}\n\\usepackage{mathrsfs}\n\\usepackage{mystyle}\n\\usepackage[new]{old-arrows}'
 latex_toplevel_sectioning = "part"
 
 

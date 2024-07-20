@@ -117,6 +117,8 @@ considère la quantité :
          :figclass: margin
          :alt: image
 
+         Rectangles médians
+
    #. Ainsi, d’après la formule de Taylor avec reste intégral,
 
       .. math::

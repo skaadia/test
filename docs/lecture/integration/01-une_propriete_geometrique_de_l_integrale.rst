@@ -11,7 +11,8 @@ Interprétation géométrique de l'intégration par parties
 
 
 .. figure:: ../../img/i_01-une_propriete_geometrique_de_l_integrale.png
-  :alt: Description de la figure
+  
+  Description de la figure
 
 
 .. prf:proof::

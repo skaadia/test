@@ -7,6 +7,16 @@ body, h1, h2, h3, h4, h5, h6 {
   font-style: normal;*/
 }
 
+/* Custom CSS for Definition admonition */
+.admonition.definition {
+  border-left: 4px solid #007BFF; /* Blue border */
+  background-color: #E9F7FF; /* Light blue background */
+}
+
+.admonition.definition .admonition-title {
+  color: #007BFF; /* Blue text */
+}
+
 /* Dark mode: invert color for svg. This was usefull with FURO Theme*/
 @media (prefers-color-scheme: dark) {
   body:not([data-theme="light"])
